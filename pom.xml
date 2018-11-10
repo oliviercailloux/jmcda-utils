@@ -4,7 +4,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>org.decision_deck.jmcda</groupId>
 	<artifactId>jmcda-utils</artifactId>
-	<version>0.5.3</version>
+	<version>0.5.4-SNAPSHOT</version>
 	<name>Decision Deck utils</name>
 	<description>Various classes providing utility methods such as graph manipulations, not specifically related to MCDA methods.</description>
 	<properties>
