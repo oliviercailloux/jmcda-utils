@@ -2,16 +2,14 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
-	<groupId>io.github.oliviercailloux.jmcda</groupId>
+	<parent>
+		<groupId>io.github.oliviercailloux.jmcda</groupId>
+		<artifactId>pom</artifactId>
+		<version>0.5.4-SNAPSHOT</version>
+	</parent>
 	<artifactId>jmcda-utils</artifactId>
-	<version>0.5.4-SNAPSHOT</version>
 	<name>Decision Deck utils</name>
 	<description>Various classes providing utility methods such as graph manipulations, not specifically related to MCDA methods.</description>
-	<properties>
-		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		<maven.compiler.source>8</maven.compiler.source>
-		<maven.compiler.target>8</maven.compiler.target>
-	</properties>
 	<dependencies>
 		<dependency>
 			<groupId>com.google.code.findbugs</groupId>
@@ -27,30 +25,6 @@
 			<groupId>org.jgrapht</groupId>
 			<artifactId>jgrapht-ext</artifactId>
 			<version>0.9.0</version>
-		</dependency>
-
-		<dependency>
-			<groupId>org.slf4j</groupId>
-			<artifactId>slf4j-api</artifactId>
-			<version>1.6.2</version>
-		</dependency>
-		<dependency>
-			<groupId>com.google.guava</groupId>
-			<artifactId>guava</artifactId>
-			<version>19.0</version>
-		</dependency>
-
-		<dependency>
-			<groupId>junit</groupId>
-			<artifactId>junit</artifactId>
-			<version>4.10</version>
-			<scope>test</scope>
-		</dependency>
-		<dependency>
-			<groupId>ch.qos.logback</groupId>
-			<artifactId>logback-classic</artifactId>
-			<version>0.9.28</version>
-			<scope>test</scope>
 		</dependency>
 	</dependencies>
 </project>
