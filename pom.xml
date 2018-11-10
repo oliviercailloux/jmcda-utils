@@ -7,7 +7,7 @@
 		<artifactId>pom</artifactId>
 		<version>0.5.4-SNAPSHOT</version>
 	</parent>
-	<artifactId>jmcda-utils</artifactId>
+	<artifactId>utils</artifactId>
 	<name>Decision Deck utils</name>
 	<description>Various classes providing utility methods such as graph manipulations, not specifically related to MCDA methods.</description>
 	<dependencies>
