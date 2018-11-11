@@ -7,6 +7,4 @@ dist: trusty
 cache:
   directories:
     - "$HOME/.m2"
-script:
-  - mvn help:effective-pom package
 
