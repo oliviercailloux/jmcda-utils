@@ -1,8 +1,8 @@
 = J-MCDA utils
 
 image:https://travis-ci.com/oliviercailloux/jmcda-utils.svg?branch=master["Build Status", link="https://travis-ci.com/oliviercailloux/jmcda-utils"]
-image:https://maven-badges.herokuapp.com/maven-central/io.github.oliviercailloux/jmcda-utils/badge.svg["Artifact on Maven Central", link="http://search.maven.org/#search%7Cga%7C1%7Cg%3A%22io.github.oliviercailloux.jmcda%22%20a%3A%22utils%22"]
-image:http://www.javadoc.io/badge/io.github.oliviercailloux/jmcda-utils.svg["Javadocs", link="http://www.javadoc.io/doc/io.github.oliviercailloux.jmcda/utils"]
+//image:https://maven-badges.herokuapp.com/maven-central/io.github.oliviercailloux/jmcda-utils/badge.svg["Artifact on Maven Central", link="http://search.maven.org/#search%7Cga%7C1%7Cg%3A%22io.github.oliviercailloux.jmcda%22%20a%3A%22utils%22"]
+//image:http://www.javadoc.io/badge/io.github.oliviercailloux/jmcda-utils.svg["Javadocs", link="http://www.javadoc.io/doc/io.github.oliviercailloux.jmcda/utils"]
 
 J-MCDA utils
 
