@@ -10,6 +10,7 @@
 	<artifactId>utils</artifactId>
 	<name>Decision Deck utils</name>
 	<description>Various classes providing utility methods such as graph manipulations, not specifically related to MCDA methods.</description>
+	<url>https://github.com/oliviercailloux/jmcda-${project.artifactId}</url>
 	<scm>
 		<connection>scm:git:git://github.com/oliviercailloux/jmcda-${project.artifactId}.git</connection>
 		<developerConnection>scm:git:ssh://github.com/oliviercailloux/jmcda-${project.artifactId}.git</developerConnection>
