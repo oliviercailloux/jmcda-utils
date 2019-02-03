@@ -35,7 +35,7 @@ import com.google.common.io.CharStreams;
 public class GraphExporter {
 	/**
 	 * @author Olivier Cailloux
-	 * 
+	 *
 	 *         Provides automatic ids to vertices: integers from zero to the number
 	 *         of vertices.
 	 * @param <V> the vertex type.
@@ -72,9 +72,9 @@ public class GraphExporter {
 	 * immutable. This object is designed for use with immutable underlying objects,
 	 * and methods using this class may assume it is immutable.
 	 * </p>
-	 * 
+	 *
 	 * @author Olivier Cailloux
-	 * 
+	 *
 	 * @param <V> the vertex type.
 	 */
 	static public class Edge<V> {
@@ -197,13 +197,13 @@ public class GraphExporter {
 		 * <code>Joiner.on(", ").join(Iterables.transform(s, Edge.getToStringFunction(Alternative.getIdFct(), Alternative.getIdFct())))</code>
 		 * .
 		 * </p>
-		 * 
+		 *
 		 * @param                <V> the vertex type.
 		 * @param sourceToString a function which transforms the first element of a pair
 		 *                       to a string.
 		 * @param targetToString a function which transforms the second element of a
 		 *                       pair to a string.
-		 * 
+		 *
 		 * @return not <code>null</code>.
 		 */
 		static public <V> Function<Edge<V>, String> getToStringFunction(final Function<V, String> sourceToString,
@@ -233,7 +233,7 @@ public class GraphExporter {
 
 	/**
 	 * @author Olivier Cailloux
-	 * 
+	 *
 	 *         Provides automatic ids to vertices: integers from zero to the number
 	 *         of vertices.
 	 * @param <V> the vertex type.
@@ -267,7 +267,7 @@ public class GraphExporter {
 	 * Charsets.UTF_8));
 	 * </code>
 	 * </P>
-	 * 
+	 *
 	 * @param from a stream in DOT format. Not <code>null</code>.
 	 * @param to   the sink that will receive the SVG output. Not <code>null</code>.
 	 * @throws IOException          if an I/O error occurs.
@@ -317,7 +317,7 @@ public class GraphExporter {
 	 * The <code>vertexNamer</code> will be used to name the vertices. The default
 	 * is to call {@link #toString()} on vertices.
 	 * </P>
-	 * 
+	 *
 	 * @param from    not <code>null</code>.
 	 * @param svgSink not <code>null</code>.
 	 * @throws IOException          if an I/O error occurs.

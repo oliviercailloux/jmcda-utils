@@ -18,9 +18,9 @@ import com.google.common.collect.Ordering;
  * immutable. This object is designed for use with immutable underlying objects,
  * and methods using this class may assume it is immutable.
  * </p>
- * 
+ *
  * @author Olivier Cailloux
- * 
+ *
  * @param <V> the vertex type.
  */
 public class Edge<V> {
@@ -142,13 +142,13 @@ public class Edge<V> {
 	 * <code>Joiner.on(", ").join(Iterables.transform(s, Edge.getToStringFunction(Alternative.getIdFct(), Alternative.getIdFct())))</code>
 	 * .
 	 * </p>
-	 * 
+	 *
 	 * @param                <V> the vertex type.
 	 * @param sourceToString a function which transforms the first element of a pair
 	 *                       to a string.
 	 * @param targetToString a function which transforms the second element of a
 	 *                       pair to a string.
-	 * 
+	 *
 	 * @return not <code>null</code>.
 	 */
 	static public <V> Function<Edge<V>, String> getToStringFunction(final Function<V, String> sourceToString,
