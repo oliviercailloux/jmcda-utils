@@ -19,79 +19,76 @@ import com.google.common.eventbus.Subscribe;
 
 class ObservableMapHelper<K, V> {
 
-    private final Map<K, V> m_delegate;
+	private final Map<K, V> m_delegate;
 
-    public ObservableMapHelper(Map<K, V> delegate) {
-	m_delegate = delegate;
-    }
+	public ObservableMapHelper(Map<K, V> delegate) {
+		m_delegate = delegate;
+	}
 
-    public void clear(Set<java.util.Map.Entry<K, V>> entrySet) {
-        for (Entry<K, V> entry : entrySet) {
-            m_eventBus.post(new PreRemovalEvent<K, V>(entry.getKey(), entry.getValue()));
-        }
-        m_eventBus.post(new PreClearEvent<K, V>());
-    
-	m_delegate.clear();
-    
-        /**
-         * This is incorrect, as the map is not empty. To support post-removal events, we would need to copy the entire
-         * map before clearing it.
-         */
-        // for (Entry<K, V> entry : entrySet) {
-        // m_eventBus.post(new RemovalEvent<K, V>(entry.getKey(), entry.getValue()));
-        // }
-        m_eventBus.post(new ClearEvent<K, V>());
-    }
+	public void clear(Set<java.util.Map.Entry<K, V>> entrySet) {
+		for (Entry<K, V> entry : entrySet) {
+			m_eventBus.post(new PreRemovalEvent<K, V>(entry.getKey(), entry.getValue()));
+		}
+		m_eventBus.post(new PreClearEvent<K, V>());
 
-    public V remove(K key, V value) {
-	m_eventBus.post(new PreUniqueRemovalEvent<K, V>(key, value));
-	m_delegate.remove(key);
-	m_eventBus.post(new UniqueRemovalEvent<K, V>(key, value));
-	return value;
-    }
+		m_delegate.clear();
 
-    /**
-     * Registers all handler methods on <code>object</code> to receive events. A handler method is one that is marked
-     * with the {@link Subscribe} annotation.
-     * 
-     * @param observer
-     *            object whose handler methods should be registered.
-     */
-    public void register(Object observer) {
-	m_eventBus.register(observer);
-    }
+		/**
+		 * This is incorrect, as the map is not empty. To support post-removal events,
+		 * we would need to copy the entire map before clearing it.
+		 */
+		// for (Entry<K, V> entry : entrySet) {
+		// m_eventBus.post(new RemovalEvent<K, V>(entry.getKey(), entry.getValue()));
+		// }
+		m_eventBus.post(new ClearEvent<K, V>());
+	}
 
-    /**
-     * Unregisters all handler methods on a registered <code>object</code>.
-     * 
-     * @param observer
-     *            object whose handler methods should be unregistered.
-     * @throws IllegalArgumentException
-     *             if the object was not previously registered.
-     */
-    public void unregister(Object observer) {
-	m_eventBus.unregister(observer);
-    }
+	public V remove(K key, V value) {
+		m_eventBus.post(new PreUniqueRemovalEvent<K, V>(key, value));
+		m_delegate.remove(key);
+		m_eventBus.post(new UniqueRemovalEvent<K, V>(key, value));
+		return value;
+	}
 
-    public V put(K key, V value, boolean contained, V previousValue) {
-        if (contained) {
-            m_eventBus.post(new PreRemovalEvent<K, V>(key, previousValue));
-            m_eventBus.post(new PreAdditionEvent<K, V>(key, value));
-        } else {
-            m_eventBus.post(new PreAdditionNewKeyEvent<K, V>(key, value));
-        }
-    
-        final V previous = m_delegate.put(key, value);
-    
-        if (contained) {
-            m_eventBus.post(new UniqueRemovalEvent<K, V>(key, previousValue));
-            m_eventBus.post(new AdditionEvent<K, V>(key, value));
-        } else {
-            m_eventBus.post(new AdditionNewKeyEvent<K, V>(key, value));
-        }
-        return previous;
-    }
+	/**
+	 * Registers all handler methods on <code>object</code> to receive events. A
+	 * handler method is one that is marked with the {@link Subscribe} annotation.
+	 * 
+	 * @param observer object whose handler methods should be registered.
+	 */
+	public void register(Object observer) {
+		m_eventBus.register(observer);
+	}
 
-    private final EventBus m_eventBus = new EventBus("map");
+	/**
+	 * Unregisters all handler methods on a registered <code>object</code>.
+	 * 
+	 * @param observer object whose handler methods should be unregistered.
+	 * @throws IllegalArgumentException if the object was not previously registered.
+	 */
+	public void unregister(Object observer) {
+		m_eventBus.unregister(observer);
+	}
+
+	public V put(K key, V value, boolean contained, V previousValue) {
+		if (contained) {
+			m_eventBus.post(new PreRemovalEvent<K, V>(key, previousValue));
+			m_eventBus.post(new PreAdditionEvent<K, V>(key, value));
+		} else {
+			m_eventBus.post(new PreAdditionNewKeyEvent<K, V>(key, value));
+		}
+
+		final V previous = m_delegate.put(key, value);
+
+		if (contained) {
+			m_eventBus.post(new UniqueRemovalEvent<K, V>(key, previousValue));
+			m_eventBus.post(new AdditionEvent<K, V>(key, value));
+		} else {
+			m_eventBus.post(new AdditionNewKeyEvent<K, V>(key, value));
+		}
+		return previous;
+	}
+
+	private final EventBus m_eventBus = new EventBus("map");
 
 }

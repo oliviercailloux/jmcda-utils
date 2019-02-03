@@ -6,19 +6,19 @@ import java.io.OutputStream;
 import java.io.Writer;
 
 public class StreamUtils {
-    static public BufferedWriter getBuffered(Writer writer) {
-	if (writer instanceof BufferedWriter) {
-	    BufferedWriter buffered = (BufferedWriter) writer;
-	    return buffered;
+	static public BufferedWriter getBuffered(Writer writer) {
+		if (writer instanceof BufferedWriter) {
+			BufferedWriter buffered = (BufferedWriter) writer;
+			return buffered;
+		}
+		return new BufferedWriter(writer);
 	}
-	return new BufferedWriter(writer);
-    }
 
-    static public BufferedOutputStream getBuffered(OutputStream outputStream) {
-	if (outputStream instanceof BufferedOutputStream) {
-	    BufferedOutputStream buffered = (BufferedOutputStream) outputStream;
-	    return buffered;
+	static public BufferedOutputStream getBuffered(OutputStream outputStream) {
+		if (outputStream instanceof BufferedOutputStream) {
+			BufferedOutputStream buffered = (BufferedOutputStream) outputStream;
+			return buffered;
+		}
+		return new BufferedOutputStream(outputStream);
 	}
-	return new BufferedOutputStream(outputStream);
-    }
 }

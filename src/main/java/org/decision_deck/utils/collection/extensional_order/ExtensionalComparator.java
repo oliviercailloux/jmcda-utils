@@ -30,16 +30,15 @@ import com.google.common.collect.HashBiMap;
  *
  * @author Olivier Cailloux
  *
- * @param <E>
- *            the type of elements that may be compared by this comparator.
+ * @param <E> the type of elements that may be compared by this comparator.
  */
 public class ExtensionalComparator<E> extends ForwardingMap<E, Integer> implements Comparator<E>, Map<E, Integer> {
 
 	/**
 	 * <p>
-	 * Creates a new empty comparator. The comparator's universe, the set of
-	 * objects this comparator accepts, is empty: this comparator will not be
-	 * able to compare any objects until elements are added).
+	 * Creates a new empty comparator. The comparator's universe, the set of objects
+	 * this comparator accepts, is empty: this comparator will not be able to
+	 * compare any objects until elements are added).
 	 * </p>
 	 * 
 	 * @return a new extensional comparator.
@@ -54,20 +53,19 @@ public class ExtensionalComparator<E> extends ForwardingMap<E, Integer> implemen
 	/**
 	 * <p>
 	 * Creates a new comparator that represents the iteration order of the given
-	 * collection. The content of the collection is used to define the universe
-	 * of objects this comparator accepts, and the order of iteration on the
-	 * given collection is used to define the order on the universe of objects.
+	 * collection. The content of the collection is used to define the universe of
+	 * objects this comparator accepts, and the order of iteration on the given
+	 * collection is used to define the order on the universe of objects.
 	 * </p>
 	 * <p>
-	 * The given collection may <em>not</em> contain duplicate elements. One of
-	 * the collection element may be <code>null</code> element (which counts as
-	 * a normal element for this comparator).
+	 * The given collection may <em>not</em> contain duplicate elements. One of the
+	 * collection element may be <code>null</code> element (which counts as a normal
+	 * element for this comparator).
 	 * </p>
 	 * 
-	 * @param order
-	 *            not <code>null</code>. May be empty (in which case this
-	 *            comparator will not be able to compare any objects until
-	 *            elements are added).
+	 * @param order not <code>null</code>. May be empty (in which case this
+	 *              comparator will not be able to compare any objects until
+	 *              elements are added).
 	 * @return a new extensional comparator.
 	 * @deprecated Use {@link ExtentionalTotalOrder}.
 	 */
@@ -78,9 +76,9 @@ public class ExtensionalComparator<E> extends ForwardingMap<E, Integer> implemen
 
 	/**
 	 * <p>
-	 * Creates a new empty comparator. The comparator's universe, the set of
-	 * objects this comparator accepts, is empty: this comparator will not be
-	 * able to compare any objects until elements are added).
+	 * Creates a new empty comparator. The comparator's universe, the set of objects
+	 * this comparator accepts, is empty: this comparator will not be able to
+	 * compare any objects until elements are added).
 	 * </p>
 	 * 
 	 * @return a new extensional comparator.
@@ -90,15 +88,14 @@ public class ExtensionalComparator<E> extends ForwardingMap<E, Integer> implemen
 	}
 
 	/**
-	 * Last position possibly taken in the positions values. -1 when positions
-	 * are empty.
+	 * Last position possibly taken in the positions values. -1 when positions are
+	 * empty.
 	 */
 	private int m_lastPosition;
 
 	/**
-	 * Orderings are consistent with equals as the map guarantees that objects
-	 * are equal iff they have the same position. The <code>null</code> key is
-	 * accepted.
+	 * Orderings are consistent with equals as the map guarantees that objects are
+	 * equal iff they have the same position. The <code>null</code> key is accepted.
 	 */
 	private final BiMap<E, Integer> m_positions;
 
@@ -110,18 +107,17 @@ public class ExtensionalComparator<E> extends ForwardingMap<E, Integer> implemen
 
 	/**
 	 * Creates a new object initialized with the given collection, in order of
-	 * iteration. The content of the collection is used to define the universe
-	 * of objects this comparator accepts, and the order of iteration on the
-	 * given collection is used to define the order on the universe of objects.
+	 * iteration. The content of the collection is used to define the universe of
+	 * objects this comparator accepts, and the order of iteration on the given
+	 * collection is used to define the order on the universe of objects.
 	 * 
-	 * @param order
-	 *            not <code>null</code>. May be empty (in which case this
-	 *            comparator will not be able to compare any objects until
-	 *            elements are added). One of the collection element may be
-	 *            <code>null</code> element (which counts as a normal element
-	 *            for this comparator). The collection may not contain duplicate
-	 *            elements. It is recommended to use a {@link SortedSet} when
-	 *            possible to ensure a correct iteration order and no duplicate.
+	 * @param order not <code>null</code>. May be empty (in which case this
+	 *              comparator will not be able to compare any objects until
+	 *              elements are added). One of the collection element may be
+	 *              <code>null</code> element (which counts as a normal element for
+	 *              this comparator). The collection may not contain duplicate
+	 *              elements. It is recommended to use a {@link SortedSet} when
+	 *              possible to ensure a correct iteration order and no duplicate.
 	 */
 	private ExtensionalComparator(Collection<E> order) {
 		if (order == null) {
@@ -136,18 +132,17 @@ public class ExtensionalComparator<E> extends ForwardingMap<E, Integer> implemen
 
 	/**
 	 * Creates a new object initialized with the given collection, in order of
-	 * iteration. The content of the collection is used to define the universe
-	 * of objects this comparator accepts, and the order of iteration on the
-	 * given collection is used to define the order on the universe of objects.
+	 * iteration. The content of the collection is used to define the universe of
+	 * objects this comparator accepts, and the order of iteration on the given
+	 * collection is used to define the order on the universe of objects.
 	 * 
-	 * @param order
-	 *            not <code>null</code>. May be empty (in which case this
-	 *            comparator will not be able to compare any objects until
-	 *            elements are added). One of the collection element may be
-	 *            <code>null</code> element (which counts as a normal element
-	 *            for this comparator). The collection may not contain duplicate
-	 *            elements. It is recommended to use a {@link SortedSet} when
-	 *            possible to ensure a correct iteration order and no duplicate.
+	 * @param order not <code>null</code>. May be empty (in which case this
+	 *              comparator will not be able to compare any objects until
+	 *              elements are added). One of the collection element may be
+	 *              <code>null</code> element (which counts as a normal element for
+	 *              this comparator). The collection may not contain duplicate
+	 *              elements. It is recommended to use a {@link SortedSet} when
+	 *              possible to ensure a correct iteration order and no duplicate.
 	 */
 	private ExtensionalComparator(Iterable<E> order) {
 		if (order == null) {
@@ -161,21 +156,19 @@ public class ExtensionalComparator<E> extends ForwardingMap<E, Integer> implemen
 	}
 
 	/**
-	 * Adds an element just after an other element. The new element is higher
-	 * than the given lower element, and lower than any element that was higher
-	 * than the given lower element prior to this call.
+	 * Adds an element just after an other element. The new element is higher than
+	 * the given lower element, and lower than any element that was higher than the
+	 * given lower element prior to this call.
 	 * 
-	 * @param lower
-	 *            must be an element in this object.
-	 * @param elem
-	 *            the element to add (<code>null</code> allowed as it counts as
-	 *            a normal element), must not already be in this object.
+	 * @param lower must be an element in this object.
+	 * @param elem  the element to add (<code>null</code> allowed as it counts as a
+	 *              normal element), must not already be in this object.
 	 */
 	public void addAfter(E lower, E elem) {
 		/**
-		 * Currently, we shift all positions after the element to add to make
-		 * some space. NB this could be implemented much more efficiently, with
-		 * an interval between each positions to leave some holes.
+		 * Currently, we shift all positions after the element to add to make some
+		 * space. NB this could be implemented much more efficiently, with an interval
+		 * between each positions to leave some holes.
 		 */
 
 		final Integer previousPos = m_positions.get(lower);
@@ -187,12 +180,11 @@ public class ExtensionalComparator<E> extends ForwardingMap<E, Integer> implemen
 	}
 
 	/**
-	 * Adds the given element as the highest of all elements already known to
-	 * this object. The given element must not be already known to this object.
+	 * Adds the given element as the highest of all elements already known to this
+	 * object. The given element must not be already known to this object.
 	 * 
-	 * @param elem
-	 *            may be <code>null</code>, if the <code>null</code> element is
-	 *            not already in the set of known objects.
+	 * @param elem may be <code>null</code>, if the <code>null</code> element is not
+	 *             already in the set of known objects.
 	 */
 	public void addAsHighest(E elem) {
 		if (m_positions.containsKey(elem)) {
@@ -217,19 +209,19 @@ public class ExtensionalComparator<E> extends ForwardingMap<E, Integer> implemen
 
 	/**
 	 * <p>
-	 * Compares its two arguments for order. Returns a negative integer, zero,
-	 * or a positive integer as the first argument is less than, equal to, or
-	 * greater than the second, according to the order of the objects predefined
-	 * at construction.
+	 * Compares its two arguments for order. Returns a negative integer, zero, or a
+	 * positive integer as the first argument is less than, equal to, or greater
+	 * than the second, according to the order of the objects predefined at
+	 * construction.
 	 * </p>
 	 * <p>
 	 * Comparing the <code>null</code> element is allowed, if it is one of the
 	 * objects known to this comparator.
 	 * </p>
 	 * 
-	 * @throws IllegalStateException
-	 *             iff at least one of the given arguments is not in the
-	 *             universe of objects this comparator accepts.
+	 * @throws IllegalStateException iff at least one of the given arguments is not
+	 *                               in the universe of objects this comparator
+	 *                               accepts.
 	 */
 	@Override
 	public int compare(E o1, E o2) {
@@ -256,8 +248,7 @@ public class ExtensionalComparator<E> extends ForwardingMap<E, Integer> implemen
 	/**
 	 * Removes an element from this ordering if it is present.
 	 * 
-	 * @param o
-	 *            <code>null</code> is allowed.
+	 * @param o <code>null</code> is allowed.
 	 * @return the previous rank associated with key, or null if there was no
 	 *         mapping for key.
 	 */
@@ -287,9 +278,8 @@ public class ExtensionalComparator<E> extends ForwardingMap<E, Integer> implemen
 			}
 		} else {
 			/**
-			 * Have to iterate over the map in decreasing position order
-			 * otherwise the incremented values we add are considered again just
-			 * after being added.
+			 * Have to iterate over the map in decreasing position order otherwise the
+			 * incremented values we add are considered again just after being added.
 			 */
 			for (int i = m_lastPosition; i >= pos; --i) {
 				final E elemToInc = m_positions.inverse().get(Integer.valueOf(i));

@@ -26,10 +26,8 @@ import com.google.common.collect.Ordering;
  *
  * @author Olivier Cailloux
  *
- * @param <T1>
- *            the type of the first element of the pair.
- * @param <T2>
- *            the type of the second element of the pair.
+ * @param <T1> the type of the first element of the pair.
+ * @param <T2> the type of the second element of the pair.
  * @deprecated rather use {@link Pair}, which does not accept null elements.
  */
 @Deprecated
@@ -64,38 +62,33 @@ public class PairN<T1, T2> {
 		final Ordering<PairN<? extends Type1, ?>> first = Ordering.from(c1).onResultOf(getElt1);
 		final Ordering<PairN<?, ? extends Type2>> second = Ordering.from(c2).onResultOf(new GetElt2<Type2>());
 		final Ordering<PairN<? extends Type1, ? extends Type2>> compound = first
-				.<PairN<? extends Type1, ? extends Type2>> compound(second);
+				.<PairN<? extends Type1, ? extends Type2>>compound(second);
 		return compound;
 	}
 
 	/**
 	 * <p>
-	 * Retrieves a function which, given a pair, gives its string form in the
-	 * form of the transformation of the first element using the given function,
-	 * a comma to separate them, and the transformation of the second element,
-	 * surrounded by less than and greater than signs (to indicate a tuple). No
-	 * <code>null</code> pairs are accepted by the function, but the elements
-	 * themselves may be <code>null</code> iff the given transformation
-	 * functions accept those.
+	 * Retrieves a function which, given a pair, gives its string form in the form
+	 * of the transformation of the first element using the given function, a comma
+	 * to separate them, and the transformation of the second element, surrounded by
+	 * less than and greater than signs (to indicate a tuple). No <code>null</code>
+	 * pairs are accepted by the function, but the elements themselves may be
+	 * <code>null</code> iff the given transformation functions accept those.
 	 * </p>
 	 * <p>
-	 * This provides an easy way to get short debug strings. E.g. to get a
-	 * string representing the contents of a set of pairs of alternatives
-	 * <em>s</em>, use
+	 * This provides an easy way to get short debug strings. E.g. to get a string
+	 * representing the contents of a set of pairs of alternatives <em>s</em>, use
 	 * <code>Joiner.on(", ").join(Iterables.transform(s, Pair.getToStringFunction(Alternative.getIdFct(), Alternative.getIdFct())))</code>
 	 * .
 	 * </p>
 	 * 
-	 * @param <F1>
-	 *            the type of the first element of the pair to transform.
-	 * @param <F2>
-	 *            the type of the second element of the pair to transform.
-	 * @param toString1
-	 *            a function which transforms the first element of a pair to a
-	 *            string.
-	 * @param toString2
-	 *            a function which transforms the second element of a pair to a
-	 *            string.
+	 * @param           <F1> the type of the first element of the pair to transform.
+	 * @param           <F2> the type of the second element of the pair to
+	 *                  transform.
+	 * @param toString1 a function which transforms the first element of a pair to a
+	 *                  string.
+	 * @param toString2 a function which transforms the second element of a pair to
+	 *                  a string.
 	 * 
 	 * @return not <code>null</code>.
 	 */
@@ -109,8 +102,7 @@ public class PairN<T1, T2> {
 				final Function<PairN<? extends F1, ?>, String> str1 = Functions.compose(toString1, fctElt1);
 				final Function<PairN<?, ? extends F2>, String> str2 = Functions.compose(toString2, fctElt2);
 				/**
-				 * Uses tuple notation, not set ('{' and '}'), as this is an
-				 * ordered pair.
+				 * Uses tuple notation, not set ('{' and '}'), as this is an ordered pair.
 				 */
 				return LEFT_ANGLE_BRACKET + str1.apply(input) + ", " + str2.apply(input) + RIGHT_ANGLE_BRACKET;
 			}

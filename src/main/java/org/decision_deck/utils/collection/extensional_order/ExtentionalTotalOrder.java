@@ -39,8 +39,7 @@ import com.google.common.collect.Sets;
  *
  * @author Olivier Cailloux
  *
- * @param <E>
- *            the type of elements this set deals with.
+ * @param <E> the type of elements this set deals with.
  */
 public class ExtentionalTotalOrder<E> extends ForwardingNavigableSet<E> implements NavigableSet<E> {
 	private class Decorated extends AbstractIterator<E> implements Iterator<E> {
@@ -70,8 +69,7 @@ public class ExtentionalTotalOrder<E> extends ForwardingNavigableSet<E> implemen
 	static public <E> ExtentionalTotalOrder<E> create() {
 		@SuppressWarnings("deprecation")
 		/**
-		 * ExtensionalComparator.create() should be package visible and not
-		 * deprecated.
+		 * ExtensionalComparator.create() should be package visible and not deprecated.
 		 */
 		final ExtensionalComparator<E> comparator = ExtensionalComparator.create();
 		final TreeSet<E> delegate = new TreeSet<E>(comparator);
@@ -81,13 +79,11 @@ public class ExtentionalTotalOrder<E> extends ForwardingNavigableSet<E> implemen
 	/**
 	 * Creates a new empty set using the given comparator.
 	 * 
-	 * @param <E>
-	 *            the type of the elements in the created set.
+	 * @param            <E> the type of the elements in the created set.
 	 * 
-	 * @param comparator
-	 *            not <code>null</code>. One of the compared element may be
-	 *            <code>null</code> element (which counts as a normal element
-	 *            for this object).
+	 * @param comparator not <code>null</code>. One of the compared element may be
+	 *                   <code>null</code> element (which counts as a normal element
+	 *                   for this object).
 	 * @return a new object.
 	 */
 	@Deprecated
@@ -99,21 +95,18 @@ public class ExtentionalTotalOrder<E> extends ForwardingNavigableSet<E> implemen
 	/**
 	 * Creates a new object initialized with the given collection, in iteration
 	 * order. The content of the collection is used to define the universe of
-	 * objects initially contained in the returned set, and the order of
-	 * iteration on the given collection is used to define the order on that set
-	 * of objects.
+	 * objects initially contained in the returned set, and the order of iteration
+	 * on the given collection is used to define the order on that set of objects.
 	 * 
-	 * @param <E>
-	 *            the type of the elements in the created set.
+	 * @param       <E> the type of the elements in the created set.
 	 * 
-	 * @param order
-	 *            not <code>null</code>. May be empty (in which case this
-	 *            comparator will not be able to compare any objects until
-	 *            elements are added). One of the collection element may be
-	 *            <code>null</code> element (which counts as a normal element
-	 *            for this object). The collection may not contain duplicate
-	 *            elements. It is recommended to use a {@link SortedSet} when
-	 *            possible to ensure a correct iteration order and no duplicate.
+	 * @param order not <code>null</code>. May be empty (in which case this
+	 *              comparator will not be able to compare any objects until
+	 *              elements are added). One of the collection element may be
+	 *              <code>null</code> element (which counts as a normal element for
+	 *              this object). The collection may not contain duplicate elements.
+	 *              It is recommended to use a {@link SortedSet} when possible to
+	 *              ensure a correct iteration order and no duplicate.
 	 * @return a new object.
 	 */
 	static public <E> ExtentionalTotalOrder<E> create(Iterable<E> order) {
@@ -141,24 +134,22 @@ public class ExtentionalTotalOrder<E> extends ForwardingNavigableSet<E> implemen
 	/**
 	 * <p>
 	 * Throws an {@link UnsupportedOperationException}. This class requires the
-	 * ordering to be defined by extention and this method does not allow to
-	 * specify how the added element should be compared to other elements
-	 * already contained in this set.
+	 * ordering to be defined by extention and this method does not allow to specify
+	 * how the added element should be compared to other elements already contained
+	 * in this set.
 	 * </p>
 	 * <p>
-	 * An alternative would be, on the model of {@link Deque}, to add as highest
-	 * by default. However, the Set add method contract requires to do nothing
-	 * if the object to add is already in the set. This would make the method
-	 * behavior counter intuitive. Furthermore, it is difficult to see why
-	 * someone would like to use this object's add method as if it was a normal
-	 * collection, not considering ordering.
+	 * An alternative would be, on the model of {@link Deque}, to add as highest by
+	 * default. However, the Set add method contract requires to do nothing if the
+	 * object to add is already in the set. This would make the method behavior
+	 * counter intuitive. Furthermore, it is difficult to see why someone would like
+	 * to use this object's add method as if it was a normal collection, not
+	 * considering ordering.
 	 * </p>
 	 * 
-	 * @param e
-	 *            unused.
+	 * @param e unused.
 	 * @return nothing.
-	 * @throws UnsupportedOperationException
-	 *             always.
+	 * @throws UnsupportedOperationException always.
 	 * @see #addAsHighest
 	 * @see #addAfter
 	 */
@@ -175,16 +166,14 @@ public class ExtentionalTotalOrder<E> extends ForwardingNavigableSet<E> implemen
 	/**
 	 * <p>
 	 * Throws an {@link UnsupportedOperationException}. This class requires the
-	 * ordering to be defined by extention and this method does not allow to
-	 * specify how the added elements should be compared to other elements
-	 * already contained in this set.
+	 * ordering to be defined by extention and this method does not allow to specify
+	 * how the added elements should be compared to other elements already contained
+	 * in this set.
 	 * </p>
 	 * 
-	 * @param c
-	 *            unused.
+	 * @param c unused.
 	 * @return nothing.
-	 * @throws UnsupportedOperationException
-	 *             always.
+	 * @throws UnsupportedOperationException always.
 	 * @see #add
 	 */
 	@Override
@@ -211,8 +200,8 @@ public class ExtentionalTotalOrder<E> extends ForwardingNavigableSet<E> implemen
 	@Override
 	public Comparator<? super E> comparator() {
 		/**
-		 * Let's wrap our comparator to make sure its internal state is not
-		 * modifiable through the returned reference.
+		 * Let's wrap our comparator to make sure its internal state is not modifiable
+		 * through the returned reference.
 		 */
 		return Ordering.from(m_comparator);
 	}

@@ -23,10 +23,8 @@ import com.google.common.collect.Ordering;
  *
  * @author Olivier Cailloux
  *
- * @param <T1>
- *            the type of the first element of the pair.
- * @param <T2>
- *            the type of the second element of the pair.
+ * @param <T1> the type of the first element of the pair.
+ * @param <T2> the type of the second element of the pair.
  */
 public class Pair<T1, T2> {
 	static public class GetElt1<T> implements Function<Pair<? extends T, ?>, T> {
@@ -58,36 +56,32 @@ public class Pair<T1, T2> {
 		final Ordering<Pair<? extends Type1, ?>> first = Ordering.from(c1).onResultOf(new GetElt1<Type1>());
 		final Ordering<Pair<?, ? extends Type2>> second = Ordering.from(c2).onResultOf(new GetElt2<Type2>());
 		final Ordering<Pair<? extends Type1, ? extends Type2>> compound = first
-				.<Pair<? extends Type1, ? extends Type2>> compound(second);
+				.<Pair<? extends Type1, ? extends Type2>>compound(second);
 		return compound;
 	}
 
 	/**
 	 * <p>
-	 * Retrieves a function which, given a pair, gives its string form in the
-	 * form of the transformation of the first element using the given function,
-	 * a comma to separate them, and the transformation of the second element,
-	 * surrounded by angle brackets (to indicate a tuple). No <code>null</code>
-	 * pairs are accepted by the function.
+	 * Retrieves a function which, given a pair, gives its string form in the form
+	 * of the transformation of the first element using the given function, a comma
+	 * to separate them, and the transformation of the second element, surrounded by
+	 * angle brackets (to indicate a tuple). No <code>null</code> pairs are accepted
+	 * by the function.
 	 * </p>
 	 * <p>
-	 * This provides an easy way to get short debug strings. E.g. to get a
-	 * string representing the contents of a set of pairs of alternatives
-	 * <em>s</em>, use
+	 * This provides an easy way to get short debug strings. E.g. to get a string
+	 * representing the contents of a set of pairs of alternatives <em>s</em>, use
 	 * <code>Joiner.on(", ").join(Iterables.transform(s, Pair.getToStringFunction(Alternative.getIdFct(), Alternative.getIdFct())))</code>
 	 * .
 	 * </p>
 	 *
-	 * @param <F1>
-	 *            the type of the first element of the pair to transform.
-	 * @param <F2>
-	 *            the type of the second element of the pair to transform.
-	 * @param toString1
-	 *            a function which transforms the first element of a pair to a
-	 *            string.
-	 * @param toString2
-	 *            a function which transforms the second element of a pair to a
-	 *            string.
+	 * @param           <F1> the type of the first element of the pair to transform.
+	 * @param           <F2> the type of the second element of the pair to
+	 *                  transform.
+	 * @param toString1 a function which transforms the first element of a pair to a
+	 *                  string.
+	 * @param toString2 a function which transforms the second element of a pair to
+	 *                  a string.
 	 *
 	 * @return not <code>null</code>.
 	 */
@@ -117,8 +111,8 @@ public class Pair<T1, T2> {
 
 	/**
 	 * Two pairs are equal iff their first elements are equal and their second
-	 * elements are equal. Equality rather than identity is used to test
-	 * elements equality.
+	 * elements are equal. Equality rather than identity is used to test elements
+	 * equality.
 	 */
 	@Override
 	public boolean equals(Object obj) {

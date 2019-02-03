@@ -57,8 +57,8 @@ public class StringUtils {
 
 	public static String asIsoVariant(Date dateTime) {
 		/**
-		 * Variation from ISO8601 because colons in folder names are not
-		 * accepted in (some?) Windows systems.
+		 * Variation from ISO8601 because colons in folder names are not accepted in
+		 * (some?) Windows systems.
 		 */
 		final SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd'T'HH-mm-ss", Locale.ENGLISH);
 		return dateFormat.format(dateTime);
@@ -96,11 +96,10 @@ public class StringUtils {
 	}
 
 	/**
-	 * Retrieves a string that is the given string with a first upper case
-	 * letter and the rest in lower case. The ENGLISH locale is used.
+	 * Retrieves a string that is the given string with a first upper case letter
+	 * and the rest in lower case. The ENGLISH locale is used.
 	 *
-	 * @param string
-	 *            not <code>null</code>.
+	 * @param string not <code>null</code>.
 	 * @return not <code>null</code>.
 	 */
 	static public String getWithFirstCap(String string) {

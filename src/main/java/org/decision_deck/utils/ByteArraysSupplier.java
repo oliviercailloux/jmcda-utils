@@ -17,10 +17,10 @@ public class ByteArraysSupplier extends ByteSink {
 	private final Set<ByteArrayOutputStream> m_arrays = Sets.newLinkedHashSet();
 
 	/**
-	 * Retrieves the arrays created on demand by this object, as a read-only
-	 * view. The byte arrays in the returned set are writable (but they are not
-	 * intended to be written). The iteration order of the returned collection
-	 * matches the order of the requested outputs.
+	 * Retrieves the arrays created on demand by this object, as a read-only view.
+	 * The byte arrays in the returned set are writable (but they are not intended
+	 * to be written). The iteration order of the returned collection matches the
+	 * order of the requested outputs.
 	 *
 	 * @return not <code>null</code>.
 	 */

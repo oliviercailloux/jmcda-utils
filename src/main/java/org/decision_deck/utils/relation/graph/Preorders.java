@@ -59,26 +59,23 @@ public class Preorders {
 		if (c1 < 0 && c2 < 0) {
 			return ComparisonState.WORST;
 		}
-		assert(c1 < 0 && c2 > 0 || (c1 > 0 && c2 < 0));
+		assert (c1 < 0 && c2 > 0 || (c1 > 0 && c2 < 0));
 		return ComparisonState.INCOMPARABLE;
 	}
 
 	/**
 	 * Retrieves the intersection of two preorders. If two elements compare in a
-	 * strongly conflicting way according to the two given preorders, that is,
-	 * if one preorder gives an element strictly better than an other one and
-	 * the other preorder considers the latter as strictly better than the
-	 * former, the resulting preorder is not complete and this method returns
-	 * <code>null</code>. If the given preorders do not contain the same
-	 * elements, the method returns necessarily <code>null</code> as the
-	 * resulting intersection is not complete.
+	 * strongly conflicting way according to the two given preorders, that is, if
+	 * one preorder gives an element strictly better than an other one and the other
+	 * preorder considers the latter as strictly better than the former, the
+	 * resulting preorder is not complete and this method returns <code>null</code>.
+	 * If the given preorders do not contain the same elements, the method returns
+	 * necessarily <code>null</code> as the resulting intersection is not complete.
 	 * 
-	 * @param p1
-	 *            not <code>null</code>.
-	 * @param p2
-	 *            not <code>null</code>.
-	 * @return <code>null</code> iff the intersection does not result in a
-	 *         complete preorder.
+	 * @param p1 not <code>null</code>.
+	 * @param p2 not <code>null</code>.
+	 * @return <code>null</code> iff the intersection does not result in a complete
+	 *         preorder.
 	 */
 	static public <E> Preorder<E> getIntersection(Preorder<E> p1, Preorder<E> p2) {
 		checkNotNull(p1);
@@ -105,7 +102,7 @@ public class Preorders {
 				final Set<E> rankCompared = inter.get(rank);
 				final Collection<ComparisonState> comparisons = Collections2.transform(rankCompared,
 						getIntersectionComparison);
-				assert(!comparisons.isEmpty());
+				assert (!comparisons.isEmpty());
 				lastComparison = comparisons.iterator().next();
 				// final ComparisonState allComparisons =
 				// CollectionVariousUtils.getOmnipresentElement(comparisons);
@@ -123,17 +120,17 @@ public class Preorders {
 				if (lastComparison == ComparisonState.EQUIVALENT) {
 					break;
 				}
-				assert(lastComparison == ComparisonState.WORST);
+				assert (lastComparison == ComparisonState.WORST);
 				if (rank == inter.getRanksCount()) {
 					break;
 				}
 			}
-			assert(1 <= rank && rank <= inter.getRanksCount());
+			assert (1 <= rank && rank <= inter.getRanksCount());
 			for (int rankDesc = rank + 1; rankDesc <= inter.getRanksCount(); ++rankDesc) {
 				final Set<E> rankCompared = inter.get(rankDesc);
 				final Collection<ComparisonState> comparisons = Collections2.transform(rankCompared,
 						getIntersectionComparison);
-				assert(!comparisons.isEmpty());
+				assert (!comparisons.isEmpty());
 				if (Iterables.any(comparisons, Predicates.not(Predicates.equalTo(ComparisonState.BETTER)))) {
 					return null;
 				}
@@ -147,7 +144,7 @@ public class Preorders {
 				inter.put(e, rank);
 				break;
 			case WORST:
-				assert(rank == inter.getRanksCount());
+				assert (rank == inter.getRanksCount());
 				inter.putAsLowest(e);
 				break;
 			case INCOMPARABLE:

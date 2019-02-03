@@ -54,29 +54,26 @@ public class GraphUtils {
 	 *
 	 * @author Olivier Cailloux
 	 *
-	 * @param <R>
-	 *            the row type.
-	 * @param <C>
-	 *            the column type.
+	 * @param <R> the row type.
+	 * @param <C> the column type.
 	 */
 	static public class BinaryMatrixNew<R, C> extends ForwardingSparseMatrixRead<R, C>
 			implements IMatrixBinary<R, C>, SparseMatrixDRead<R, C> {
 
 		/**
-		 * Creates a new matrix ensuring every element it contains is between
-		 * zero and one.
+		 * Creates a new matrix ensuring every element it contains is between zero and
+		 * one.
 		 *
 		 */
 		public BinaryMatrixNew() {
-			super(Matrixes.<R, C> newValidating(PredicateUtils.inBetween(0d, 1d)));
+			super(Matrixes.<R, C>newValidating(PredicateUtils.inBetween(0d, 1d)));
 		}
 
 		/**
-		 * Creates a new matrix decorating the given matrix by ensuring every
-		 * element it contains is zero or one.
+		 * Creates a new matrix decorating the given matrix by ensuring every element it
+		 * contains is zero or one.
 		 *
-		 * @param delegate
-		 *            not <code>null</code>, must be empty.
+		 * @param delegate not <code>null</code>, must be empty.
 		 */
 		public BinaryMatrixNew(SparseMatrixD<R, C> delegate) {
 			super(new ValidatingDecoratedMatrix<R, C>(delegate,
@@ -166,19 +163,15 @@ public class GraphUtils {
 	}
 
 	/**
-	 * Adds the specified source and target vertices to the graph, if not
-	 * already included, and creates a new edge and adds it to the specified
-	 * graph similarly to the {@link DiGraph#addEdge} method.
+	 * Adds the specified source and target vertices to the graph, if not already
+	 * included, and creates a new edge and adds it to the specified graph similarly
+	 * to the {@link DiGraph#addEdge} method.
 	 *
-	 * @param <V>
-	 *            the vertex type.
+	 * @param              <V> the vertex type.
 	 *
-	 * @param g
-	 *            not <code>null</code>.
-	 * @param sourceVertex
-	 *            not <code>null</code>.
-	 * @param targetVertex
-	 *            not <code>null</code>.
+	 * @param g            not <code>null</code>.
+	 * @param sourceVertex not <code>null</code>.
+	 * @param targetVertex not <code>null</code>.
 	 *
 	 * @return The newly created edge if added to the graph, otherwise
 	 *         <code>null</code>.
@@ -309,10 +302,8 @@ public class GraphUtils {
 
 	/**
 	 *
-	 * @param <V>
-	 *            the type of the elements.
-	 * @param preorder
-	 *            not <code>null</code>.
+	 * @param          <V> the type of the elements.
+	 * @param preorder not <code>null</code>.
 	 * @return not <code>null</code>, a graph representing the given preorder.
 	 */
 	static public <V> DefaultDirectedGraph<V, Edge<V>> getDiGraph(Preorder<V> preorder) {
@@ -363,10 +354,8 @@ public class GraphUtils {
 	/**
 	 * TODO param should be binary as the values are not used.
 	 *
-	 * @param <V>
-	 *            vertex type.
-	 * @param source
-	 *            not <code>null</code>.
+	 * @param        <V> vertex type.
+	 * @param source not <code>null</code>.
 	 * @return not <code>null</code>.
 	 */
 	static public <V> DiGraph<V> getDiGraphBetter(SparseMatrixFuzzyRead<V, V> source) {
@@ -393,13 +382,10 @@ public class GraphUtils {
 
 	/**
 	 *
-	 * @param <V>
-	 *            the type of the elements.
-	 * @param preorder
-	 *            not <code>null</code>.
-	 * @return not <code>null</code>, a graph representing the given preorder,
-	 *         with none of the edges that can be deduced from the transitivity
-	 *         property.
+	 * @param          <V> the type of the elements.
+	 * @param preorder not <code>null</code>.
+	 * @return not <code>null</code>, a graph representing the given preorder, with
+	 *         none of the edges that can be deduced from the transitivity property.
 	 */
 	static public <V> DiGraph<V> getDiGraphBetterWithTransitiveReduct(Preorder<V> preorder) {
 		final DiGraphImpl<V> g = DiGraphImpl.create();
@@ -420,10 +406,8 @@ public class GraphUtils {
 
 	/**
 	 *
-	 * @param <V>
-	 *            the type of the elements.
-	 * @param preorder
-	 *            not <code>null</code>.
+	 * @param          <V> the type of the elements.
+	 * @param preorder not <code>null</code>.
 	 * @return not <code>null</code>, a graph representing the given preorder.
 	 */
 	static public <V> DiGraph<V> getDiGraphWithTransitiveEdgesButNoLoops(Preorder<V> preorder) {
@@ -445,17 +429,14 @@ public class GraphUtils {
 	}
 
 	/**
-	 * Retrieves the set of ordered pairs that are connected differently in the
-	 * two given graphs. (make it more precise!)
+	 * Retrieves the set of ordered pairs that are connected differently in the two
+	 * given graphs. (make it more precise!)
 	 *
-	 * @param <V>
-	 *            the vertex type.
-	 * @param g1
-	 *            not <code>null</code>.
-	 * @param g2
-	 *            not <code>null</code>.
-	 * @return not <code>null</code>, may be empty. A set of immutable sets of
-	 *         size two.
+	 * @param    <V> the vertex type.
+	 * @param g1 not <code>null</code>.
+	 * @param g2 not <code>null</code>.
+	 * @return not <code>null</code>, may be empty. A set of immutable sets of size
+	 *         two.
 	 */
 	static public <V> Set<Edge<V>> getDisagreements(DiGraph<V> g1, DiGraph<V> g2) {
 		final SetView<V> vertices = Sets.union(g1.vertexSet(), g2.vertexSet());
@@ -490,19 +471,15 @@ public class GraphUtils {
 	}
 
 	/**
-	 * Computes a relation so that the row element is greater or equal to the
-	 * column element iff both preorders say so. This is not necessarily a
-	 * complete relation. The result is transitive. TODO this should rather be a
-	 * graph...
+	 * Computes a relation so that the row element is greater or equal to the column
+	 * element iff both preorders say so. This is not necessarily a complete
+	 * relation. The result is transitive. TODO this should rather be a graph...
 	 *
-	 * @param <E>
-	 *            the type of the elements.
-	 * @param p1
-	 *            not <code>null</code>.
-	 * @param p2
-	 *            not <code>null</code>.
-	 * @return not <code>null</code>, a matrix which contains as rows and as
-	 *         columns the elements in the given preorders.
+	 * @param    <E> the type of the elements.
+	 * @param p1 not <code>null</code>.
+	 * @param p2 not <code>null</code>.
+	 * @return not <code>null</code>, a matrix which contains as rows and as columns
+	 *         the elements in the given preorders.
 	 */
 	static public <E> SparseMatrixFuzzyRead<E, E> getIntersection(Preorder<E> p1, Preorder<E> p2) {
 		final SparseMatrixFuzzy<E, E> res = Matrixes.newSparseFuzzy();
@@ -534,22 +511,19 @@ public class GraphUtils {
 	}
 
 	/**
-	 * Retrieves the set of unordered pairs that are connected differently in
-	 * the two given graphs. Only the pairs which are such that g1 has a path
-	 * from source to target and g2 has a path from target to source, or
-	 * conversely, are reported. Thus this method does not consider it a
-	 * disagreement if the first graph has no links between some a and b and the
-	 * second graph has, for example. Both graphs do not have to contain the
-	 * same vertices, and they do not have to be transitive or anything similar.
+	 * Retrieves the set of unordered pairs that are connected differently in the
+	 * two given graphs. Only the pairs which are such that g1 has a path from
+	 * source to target and g2 has a path from target to source, or conversely, are
+	 * reported. Thus this method does not consider it a disagreement if the first
+	 * graph has no links between some a and b and the second graph has, for
+	 * example. Both graphs do not have to contain the same vertices, and they do
+	 * not have to be transitive or anything similar.
 	 *
-	 * @param <V>
-	 *            the vertex type.
-	 * @param g1
-	 *            not <code>null</code>.
-	 * @param g2
-	 *            not <code>null</code>.
-	 * @return not <code>null</code>, may be empty. A set of immutable sets of
-	 *         size two.
+	 * @param    <V> the vertex type.
+	 * @param g1 not <code>null</code>.
+	 * @param g2 not <code>null</code>.
+	 * @return not <code>null</code>, may be empty. A set of immutable sets of size
+	 *         two.
 	 */
 	static public <V> Set<Set<V>> getStrongDisagreements(DiGraph<V> g1, DiGraph<V> g2) {
 		final SetView<V> vertices = Sets.union(g1.vertexSet(), g2.vertexSet());
@@ -576,8 +550,8 @@ public class GraphUtils {
 				final boolean ba = g1.containsEdge(target, source);
 				if (ab == ba) {
 					/**
-					 * a and b considered equivalent by the first graph, thus no
-					 * disagreement is possible here.
+					 * a and b considered equivalent by the first graph, thus no disagreement is
+					 * possible here.
 					 */
 					continue;
 				}
