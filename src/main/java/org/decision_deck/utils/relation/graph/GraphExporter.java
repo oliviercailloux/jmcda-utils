@@ -324,7 +324,7 @@ public class GraphExporter {
 	 * @throws InterruptedException if the current thread is interrupted by another
 	 *                              thread while it is waiting for the dot export to
 	 *                              proceed.
-	 * @see {@link #setVertexNamer(Function)}.
+	 * @see #setVertexNamer(Function)
 	 */
 	public <V, E> void export(Graph<V, E> from, CharSink svgSink) throws IOException, InterruptedException {
 		checkNotNull(from);
