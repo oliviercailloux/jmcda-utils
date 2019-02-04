@@ -5,8 +5,9 @@
 	<parent>
 		<groupId>io.github.oliviercailloux.jmcda</groupId>
 		<artifactId>pom</artifactId>
-		<version>0.5.4-SNAPSHOT</version>
+		<version>0.6.0</version>
 	</parent>
+	<version>0.5.4-SNAPSHOT</version>
 	<artifactId>utils</artifactId>
 	<name>Decision Deck utils</name>
 	<description>Various classes providing utility methods such as graph manipulations, not specifically related to MCDA methods.</description>
