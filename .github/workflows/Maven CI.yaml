@@ -16,7 +16,8 @@ jobs:
       - name: Cache
         uses: actions/cache@v2
         with:
-          key: maven-cache
+          key: maven-cache-${{ hashFiles('**/pom.xml') }}
+          restore-keys: maven-cache
           path: ~/.m2/repository
       - name: Maven
         run: mvn -B verify
