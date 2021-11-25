@@ -26,8 +26,8 @@ public class Matrixes {
 	 * Returns a new matrix ensuring every element it contains satisfies the given
 	 * predicate.
 	 * 
-	 * @param valuePredicate not <code>null</code>.
-	 * @return not <code>null</code>.
+	 * @param valuePredicate not {@code null}.
+	 * @return not {@code null}.
 	 */
 	static public <R, C> SparseMatrixD<R, C> newValidating(Predicate<Double> valuePredicate) {
 		return ValidatingDecoratedMatrix.create(valuePredicate);
@@ -38,12 +38,12 @@ public class Matrixes {
 	 * they contain values for the same mappings and the value they contain for each
 	 * mapping are not more different than the given allowed imprecision.
 	 * 
-	 * may be <code>null</code>.
+	 * may be {@code null}.
 	 * 
-	 * @param m1          may be <code>null</code>.
-	 * @param m2          may be <code>null</code>.
+	 * @param m1          may be {@code null}.
+	 * @param m2          may be {@code null}.
 	 * @param imprecision a number positive or nul, or positive infinity.
-	 * @return <code>true</code> iff the given matrix is approximately equal to this
+	 * @return {@code true} iff the given matrix is approximately equal to this
 	 *         one.
 	 */
 	static public <R, C> boolean approxEqual(SparseMatrixDRead<R, C> m1, SparseMatrixDRead<R, C> m2,
@@ -93,8 +93,8 @@ public class Matrixes {
 	 * 
 	 * @param        <R> the row type.
 	 * @param        <C> the column type.
-	 * @param source not <code>null</code>.
-	 * @return not <code>null</code>.
+	 * @param source not {@code null}.
+	 * @return not {@code null}.
 	 */
 	static public <R, C> String toString(SparseMatrixDRead<R, C> source) {
 		checkNotNull(source);
@@ -107,8 +107,8 @@ public class Matrixes {
 	 * 
 	 * @param          <R> the row type.
 	 * @param          <C> the column type.
-	 * @param delegate not <code>null</code>.
-	 * @return not <code>null</code>.
+	 * @param delegate not {@code null}.
+	 * @return not {@code null}.
 	 */
 	static public <R, C> SparseMatrixDRead<R, C> getReadView(SparseMatrixDRead<R, C> delegate) {
 		checkNotNull(delegate);
@@ -150,11 +150,11 @@ public class Matrixes {
 	 * @param             <Row> the row type.
 	 * @param             <Column> the column type.
 	 * 
-	 * @param m1          not <code>null</code>.
-	 * @param m2          may be <code>null</code> (then returns
-	 *                    <code>false</code>).
+	 * @param m1          not {@code null}.
+	 * @param m2          may be {@code null} (then returns
+	 *                    {@code false}).
 	 * @param imprecision the allowed imprecision.
-	 * @return <code>true</code> iff both contents have values at the same positions
+	 * @return {@code true} iff both contents have values at the same positions
 	 *         and these values are not further than the given imprecision.
 	 */
 	@SuppressWarnings("unused")
@@ -213,9 +213,9 @@ public class Matrixes {
 	 * method returns an empty set.
 	 * </p>
 	 * 
-	 * @param matrix1 not <code>null</code>.
-	 * @param matrix2 not <code>null</code>.
-	 * @return not <code>null</code>.
+	 * @param matrix1 not {@code null}.
+	 * @param matrix2 not {@code null}.
+	 * @return not {@code null}.
 	 */
 	static public <R, C> Set<R> getDiscordingRows(SparseMatrixDRead<R, C> matrix1, SparseMatrixDRead<R, C> matrix2) {
 		checkNotNull(matrix1);
@@ -237,8 +237,8 @@ public class Matrixes {
 	 * second one. If both matrix have a value defined for a given position, and
 	 * these values are different, it is an error and an exception is thrown.
 	 * 
-	 * @param m1 not <code>null</code>.
-	 * @param m2 not <code>null</code>.
+	 * @param m1 not {@code null}.
+	 * @param m2 not {@code null}.
 	 * @return a copy of all entries.
 	 */
 	static public <R, C> SparseMatrixD<R, C> merge(SparseMatrixDRead<R, C> m1, SparseMatrixDRead<R, C> m2) {
@@ -248,16 +248,16 @@ public class Matrixes {
 	}
 
 	/**
-	 * Returns a matrix containing the mappings in <code>unfiltered</code>
+	 * Returns a matrix containing the mappings in {@code unfiltered}
 	 * satisfying the given predicates. The returned matrix is a live view of
-	 * <code>unfiltered</code>; changes to the source affects the view.
+	 * {@code unfiltered}; changes to the source affects the view.
 	 * 
-	 * @param unfiltered      not <code>null</code>.
-	 * @param rowPredicate    not <code>null</code>, use
+	 * @param unfiltered      not {@code null}.
+	 * @param rowPredicate    not {@code null}, use
 	 *                        {@link Predicates#alwaysTrue()} for no restriction.
-	 * @param columnPredicate not <code>null</code>, use
+	 * @param columnPredicate not {@code null}, use
 	 *                        {@link Predicates#alwaysTrue()} for no restriction.
-	 * @return not <code>null</code>, a read-only view.
+	 * @return not {@code null}, a read-only view.
 	 */
 	static public <R, C> SparseMatrixDRead<R, C> getFilteredView(SparseMatrixDRead<R, C> unfiltered,
 			Predicate<R> rowPredicate, Predicate<C> columnPredicate) {
@@ -270,9 +270,9 @@ public class Matrixes {
 	 * must be complete and square.
 	 * 
 	 * @param          <T> the type of rows and columns.
-	 * @param matrix   not <code>null</code>.
+	 * @param matrix   not {@code null}.
 	 * @param maxValue infinite values are allowed.
-	 * @return <code>true</code> iff there exists a pair (a, b) such that the entry
+	 * @return {@code true} iff there exists a pair (a, b) such that the entry
 	 *         at (a, b) plus the value at (b, a) is strictly greater than one.
 	 */
 	public static <T> boolean symMax(SparseMatrixDRead<T, T> matrix, double maxValue) {

@@ -184,7 +184,7 @@ public class DOTExporterTemp<V, E> {
 	 * @param v v
 	 * @return r
 	 * 
-	 * @throws RuntimeException if the given <code>vertexIDProvider</code> didn't
+	 * @throws RuntimeException if the given {@code vertexIDProvider} didn't
 	 *                          generate a valid vertex ID.
 	 */
 	private String getVertexID(V v) {

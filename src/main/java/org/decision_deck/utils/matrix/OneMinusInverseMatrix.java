@@ -42,7 +42,7 @@ public class OneMinusInverseMatrix<E> implements SparseMatrixDRead<E, E> {
 	 * Sets this object to use the given matrix as base and a complement possibly
 	 * different than one.
 	 * 
-	 * @param base       not <code>null</code>.
+	 * @param base       not {@code null}.
 	 * @param complement the complement to use instead of one.
 	 */
 	public OneMinusInverseMatrix(SparseMatrixDRead<E, E> base, double complement) {
@@ -56,7 +56,7 @@ public class OneMinusInverseMatrix<E> implements SparseMatrixDRead<E, E> {
 	/**
 	 * Sets this object to use the given matrix as base.
 	 * 
-	 * @param base not <code>null</code>.
+	 * @param base not {@code null}.
 	 */
 	public OneMinusInverseMatrix(SparseMatrixDRead<E, E> base) {
 		if (base == null) {

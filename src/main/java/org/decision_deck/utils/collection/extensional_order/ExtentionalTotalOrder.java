@@ -81,8 +81,8 @@ public class ExtentionalTotalOrder<E> extends ForwardingNavigableSet<E> implemen
 	 * 
 	 * @param            <E> the type of the elements in the created set.
 	 * 
-	 * @param comparator not <code>null</code>. One of the compared element may be
-	 *                   <code>null</code> element (which counts as a normal element
+	 * @param comparator not {@code null}. One of the compared element may be
+	 *                   {@code null} element (which counts as a normal element
 	 *                   for this object).
 	 * @return a new object.
 	 */
@@ -100,10 +100,10 @@ public class ExtentionalTotalOrder<E> extends ForwardingNavigableSet<E> implemen
 	 * 
 	 * @param       <E> the type of the elements in the created set.
 	 * 
-	 * @param order not <code>null</code>. May be empty (in which case this
+	 * @param order not {@code null}. May be empty (in which case this
 	 *              comparator will not be able to compare any objects until
 	 *              elements are added). One of the collection element may be
-	 *              <code>null</code> element (which counts as a normal element for
+	 *              {@code null} element (which counts as a normal element for
 	 *              this object). The collection may not contain duplicate elements.
 	 *              It is recommended to use a {@link SortedSet} when possible to
 	 *              ensure a correct iteration order and no duplicate.

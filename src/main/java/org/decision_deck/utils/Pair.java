@@ -9,7 +9,7 @@ import com.google.common.collect.Ordering;
 /**
  * <P>
  * A simple pair object, holding two other objects, of possibly different types.
- * Elements of the pair may <em>not</em> be <code>null</code>. Note that this
+ * Elements of the pair may <em>not</em> be {@code null}. Note that this
  * object represents an ordered pair, or a 2-tuple, which is different than an
  * unordered pair or couple in French.
  * </P>
@@ -65,13 +65,13 @@ public class Pair<T1, T2> {
 	 * Retrieves a function which, given a pair, gives its string form in the form
 	 * of the transformation of the first element using the given function, a comma
 	 * to separate them, and the transformation of the second element, surrounded by
-	 * angle brackets (to indicate a tuple). No <code>null</code> pairs are accepted
+	 * angle brackets (to indicate a tuple). No {@code null} pairs are accepted
 	 * by the function.
 	 * </p>
 	 * <p>
 	 * This provides an easy way to get short debug strings. E.g. to get a string
 	 * representing the contents of a set of pairs of alternatives <em>s</em>, use
-	 * <code>Joiner.on(", ").join(Iterables.transform(s, Pair.getToStringFunction(Alternative.getIdFct(), Alternative.getIdFct())))</code>
+	 * {@code Joiner.on(", ").join(Iterables.transform(s, Pair.getToStringFunction(Alternative.getIdFct(), Alternative.getIdFct())))}
 	 * .
 	 * </p>
 	 *
@@ -83,7 +83,7 @@ public class Pair<T1, T2> {
 	 * @param toString2 a function which transforms the second element of a pair to
 	 *                  a string.
 	 *
-	 * @return not <code>null</code>.
+	 * @return not {@code null}.
 	 */
 	static public <F1, F2> Function<Pair<F1, F2>, String> getToStringFunction(
 			final Function<? super F1, String> toString1, final Function<? super F2, String> toString2) {
@@ -138,7 +138,7 @@ public class Pair<T1, T2> {
 	/**
 	 * Retrieves the first element of the pair.
 	 *
-	 * @return not <code>null</code>.
+	 * @return not {@code null}.
 	 */
 	public T1 getElt1() {
 		return m_elt1;
@@ -147,7 +147,7 @@ public class Pair<T1, T2> {
 	/**
 	 * Retrieves the second element of the pair.
 	 *
-	 * @return not <code>null</code>.
+	 * @return not {@code null}.
 	 */
 	public T2 getElt2() {
 		return m_elt2;

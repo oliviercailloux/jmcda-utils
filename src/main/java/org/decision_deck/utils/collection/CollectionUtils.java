@@ -61,8 +61,8 @@ public class CollectionUtils {
 	 * </p>
 	 * 
 	 * @param        <E> the type of elements this order contains.
-	 * @param source not <code>null</code>, may not contain duplicates.
-	 * @return not <code>null</code>.
+	 * @param source not {@code null}, may not contain duplicates.
+	 * @return not {@code null}.
 	 */
 	static public <E> ExtentionalTotalOrder<E> newExtentionalTotalOrder(Iterable<E> source) {
 		return ExtentionalTotalOrder.create(source);
@@ -143,13 +143,13 @@ public class CollectionUtils {
 		 * Retrieves a function which, given a pair, gives its string form in the form
 		 * of the transformation of the first element using the given function, a comma
 		 * to separate them, and the transformation of the second element, surrounded by
-		 * angle brackets (to indicate a tuple). No <code>null</code> pairs are accepted
+		 * angle brackets (to indicate a tuple). No {@code null} pairs are accepted
 		 * by the function.
 		 * </p>
 		 * <p>
 		 * This provides an easy way to get short debug strings. E.g. to get a string
 		 * representing the contents of a set of pairs of alternatives <em>s</em>, use
-		 * <code>Joiner.on(", ").join(Iterables.transform(s, Pair.getToStringFunction(Alternative.getIdFct(), Alternative.getIdFct())))</code>
+		 * {@code Joiner.on(", ").join(Iterables.transform(s, Pair.getToStringFunction(Alternative.getIdFct(), Alternative.getIdFct())))}
 		 * .
 		 * </p>
 		 * 
@@ -161,7 +161,7 @@ public class CollectionUtils {
 		 * @param toString2 a function which transforms the second element of a pair to
 		 *                  a string.
 		 * 
-		 * @return not <code>null</code>.
+		 * @return not {@code null}.
 		 */
 		static public <F1, F2> Function<Entry<F1, F2>, String> getToStringFunction(
 				final Function<? super F1, String> toString1, final Function<? super F2, String> toString2) {
@@ -194,14 +194,14 @@ public class CollectionUtils {
 	 * and contains the objects in the same order as they are found in the contained
 	 * iterable. If the container contains, in order, the strings "s1", "s2", "s3",
 	 * and the contained object contains "s1", "s3", this method returns
-	 * <code>true</code>. If the contained object contains "s3", "s1", this method
-	 * returns <code>false</code>. If the contained object is not a subset of the
-	 * contained object, this method returns <code>false</code>.
+	 * {@code true}. If the contained object contains "s3", "s1", this method
+	 * returns {@code false}. If the contained object is not a subset of the
+	 * contained object, this method returns {@code false}.
 	 * 
 	 * @param           <T> the type of searched objects.
-	 * @param container not <code>null</code>.
-	 * @param contained not <code>null</code>.
-	 * @return <code>true</code> iff the given container contains every elements of
+	 * @param container not {@code null}.
+	 * @param contained not {@code null}.
+	 * @return {@code true} iff the given container contains every elements of
 	 *         contained in the same order (and possibly more).
 	 */
 	static public <T> boolean containsInOrder(Iterable<T> container, Iterable<T> contained) {
@@ -247,8 +247,8 @@ public class CollectionUtils {
 	 * reflected in the object returned by this method.
 	 * 
 	 * @param      <T> the type of the objects in the sets.
-	 * @param sets not <code>null</code>, no <code>null</code> sets inside.
-	 * @return not <code>null</code>.
+	 * @param sets not {@code null}, no {@code null} sets inside.
+	 * @return not {@code null}.
 	 */
 	public static <T> Set<T> union(Iterable<? extends Set<T>> sets) {
 		Preconditions.checkNotNull(sets);
@@ -277,9 +277,9 @@ public class CollectionUtils {
 	 * stronger property than {@link #containsInOrder}.
 	 * 
 	 * @param          <T> the type of elements in the sets.
-	 * @param subSet   not <code>null</code>.
-	 * @param superSet not <code>null</code>.
-	 * @return <code>true</code> iff the subset is contiguous in the super set.
+	 * @param subSet   not {@code null}.
+	 * @param superSet not {@code null}.
+	 * @return {@code true} iff the subset is contiguous in the super set.
 	 */
 	static public <T> boolean isContiguous(Iterable<T> subSet, Iterable<T> superSet) {
 		if (!subSet.iterator().hasNext()) {
@@ -315,7 +315,7 @@ public class CollectionUtils {
 	 * not the whole set of objects of type <em>E</em> as the given comparator is a
 	 * subset comparator.
 	 * 
-	 * @param subsetComparator not <code>null</code>.
+	 * @param subsetComparator not {@code null}.
 	 * @return an empty set.
 	 */
 	@Deprecated
@@ -327,13 +327,13 @@ public class CollectionUtils {
 	 * If the given iterable contains a unique element, possibly repeated, this
 	 * method returns that element, more precisely, the first one of all the equal
 	 * elements. If the given iterable contains at least two different (as per
-	 * equals) elements, the method returns <code>null</code>. If the given iterable
-	 * is empty, this method returns <code>null</code>. If the given iterable
-	 * contains only <code>null</code> elements, this method returns
-	 * <code>null</code>.
+	 * equals) elements, the method returns {@code null}. If the given iterable
+	 * is empty, this method returns {@code null}. If the given iterable
+	 * contains only {@code null} elements, this method returns
+	 * {@code null}.
 	 * 
-	 * @param iterable not <code>null</code>.
-	 * @return may be <code>null</code>.
+	 * @param iterable not {@code null}.
+	 * @return may be {@code null}.
 	 */
 	static public <E> E getOmnipresentElement(Iterable<E> iterable) {
 		checkNotNull(iterable);

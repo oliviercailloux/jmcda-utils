@@ -76,7 +76,7 @@ public class OrderedMatrix<R, C> extends FloatMatrixForwarder<R, C> implements S
 	 * order of the delegate is used.
 	 * </p>
 	 * 
-	 * @param delegate not <code>null</code>.
+	 * @param delegate not {@code null}.
 	 * @see #create
 	 */
 	public OrderedMatrix(SparseMatrixD<R, C> delegate) {
@@ -90,7 +90,7 @@ public class OrderedMatrix<R, C> extends FloatMatrixForwarder<R, C> implements S
 	 * make sure the row and column orders always contain all rows and columns used
 	 * in the given matrix.
 	 * 
-	 * @param rowOrder not <code>null</code>.
+	 * @param rowOrder not {@code null}.
 	 */
 	public void setRowOrder(ExtensionalComparator<R> rowOrder) {
 		m_rowOrder.setSubsetComparator(rowOrder);

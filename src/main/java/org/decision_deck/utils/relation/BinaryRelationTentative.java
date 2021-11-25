@@ -26,7 +26,7 @@ public interface BinaryRelationTentative<F, T> {
 	public int size();
 
 	/**
-	 * @return <code>true</code> iff the relation has empty from and to sets.
+	 * @return {@code true} iff the relation has empty from and to sets.
 	 */
 	public boolean isEmpty();
 
@@ -38,8 +38,8 @@ public interface BinaryRelationTentative<F, T> {
 	public boolean equals(Object obj);
 
 	/**
-	 * @return whether the given <code>from</code> element is in relation with the
-	 *         <code>to</code> element.
+	 * @return whether the given {@code from} element is in relation with the
+	 *         {@code to} element.
 	 */
 	public boolean contains(F from, T to);
 

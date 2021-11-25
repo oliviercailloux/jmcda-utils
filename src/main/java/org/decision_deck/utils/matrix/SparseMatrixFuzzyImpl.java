@@ -12,7 +12,7 @@ public class SparseMatrixFuzzyImpl<R, C> extends ForwardingSparseMatrix<R, C> im
 	 * Creates a new matrix decorating the given matrix by ensuring every element it
 	 * contains is between zero and one.
 	 * 
-	 * @param delegate not <code>null</code>, must be empty.
+	 * @param delegate not {@code null}, must be empty.
 	 */
 	SparseMatrixFuzzyImpl(SparseMatrixD<R, C> delegate) {
 		super(new ValidatingDecoratedMatrix<R, C>(delegate, VALIDATOR));

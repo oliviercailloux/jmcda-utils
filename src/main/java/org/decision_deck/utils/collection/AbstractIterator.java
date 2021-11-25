@@ -11,7 +11,7 @@ public abstract class AbstractIterator<E> implements Iterator<E> {
 	private E m_current;
 
 	/**
-	 * @param delegateIterator not <code>null</code>.
+	 * @param delegateIterator not {@code null}.
 	 */
 	public AbstractIterator(Iterator<E> delegateIterator) {
 		checkNotNull(delegateIterator);
@@ -48,7 +48,7 @@ public abstract class AbstractIterator<E> implements Iterator<E> {
 	 * Called after removal of an element through the delegate iterator.
 	 * 
 	 * @param e an element returned by the underlying iterator. May be
-	 *          <code>null</code> if the underlying iterator accepts these elements.
+	 *          {@code null} if the underlying iterator accepts these elements.
 	 */
 	protected abstract void remove(E e);
 

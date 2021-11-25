@@ -25,7 +25,7 @@ import com.google.common.collect.HashBiMap;
  * This comparator imposes orderings that are consistent with equals.
  * </p>
  * <p>
- * The <code>null</code> element counts as a normal element for this comparator.
+ * The {@code null} element counts as a normal element for this comparator.
  * </p>
  *
  * @author Olivier Cailloux
@@ -59,11 +59,11 @@ public class ExtensionalComparator<E> extends ForwardingMap<E, Integer> implemen
 	 * </p>
 	 * <p>
 	 * The given collection may <em>not</em> contain duplicate elements. One of the
-	 * collection element may be <code>null</code> element (which counts as a normal
+	 * collection element may be {@code null} element (which counts as a normal
 	 * element for this comparator).
 	 * </p>
 	 * 
-	 * @param order not <code>null</code>. May be empty (in which case this
+	 * @param order not {@code null}. May be empty (in which case this
 	 *              comparator will not be able to compare any objects until
 	 *              elements are added).
 	 * @return a new extensional comparator.
@@ -95,7 +95,7 @@ public class ExtensionalComparator<E> extends ForwardingMap<E, Integer> implemen
 
 	/**
 	 * Orderings are consistent with equals as the map guarantees that objects are
-	 * equal iff they have the same position. The <code>null</code> key is accepted.
+	 * equal iff they have the same position. The {@code null} key is accepted.
 	 */
 	private final BiMap<E, Integer> m_positions;
 
@@ -111,10 +111,10 @@ public class ExtensionalComparator<E> extends ForwardingMap<E, Integer> implemen
 	 * objects this comparator accepts, and the order of iteration on the given
 	 * collection is used to define the order on the universe of objects.
 	 * 
-	 * @param order not <code>null</code>. May be empty (in which case this
+	 * @param order not {@code null}. May be empty (in which case this
 	 *              comparator will not be able to compare any objects until
 	 *              elements are added). One of the collection element may be
-	 *              <code>null</code> element (which counts as a normal element for
+	 *              {@code null} element (which counts as a normal element for
 	 *              this comparator). The collection may not contain duplicate
 	 *              elements. It is recommended to use a {@link SortedSet} when
 	 *              possible to ensure a correct iteration order and no duplicate.
@@ -136,10 +136,10 @@ public class ExtensionalComparator<E> extends ForwardingMap<E, Integer> implemen
 	 * objects this comparator accepts, and the order of iteration on the given
 	 * collection is used to define the order on the universe of objects.
 	 * 
-	 * @param order not <code>null</code>. May be empty (in which case this
+	 * @param order not {@code null}. May be empty (in which case this
 	 *              comparator will not be able to compare any objects until
 	 *              elements are added). One of the collection element may be
-	 *              <code>null</code> element (which counts as a normal element for
+	 *              {@code null} element (which counts as a normal element for
 	 *              this comparator). The collection may not contain duplicate
 	 *              elements. It is recommended to use a {@link SortedSet} when
 	 *              possible to ensure a correct iteration order and no duplicate.
@@ -161,7 +161,7 @@ public class ExtensionalComparator<E> extends ForwardingMap<E, Integer> implemen
 	 * given lower element prior to this call.
 	 * 
 	 * @param lower must be an element in this object.
-	 * @param elem  the element to add (<code>null</code> allowed as it counts as a
+	 * @param elem  the element to add ({@code null} allowed as it counts as a
 	 *              normal element), must not already be in this object.
 	 */
 	public void addAfter(E lower, E elem) {
@@ -183,7 +183,7 @@ public class ExtensionalComparator<E> extends ForwardingMap<E, Integer> implemen
 	 * Adds the given element as the highest of all elements already known to this
 	 * object. The given element must not be already known to this object.
 	 * 
-	 * @param elem may be <code>null</code>, if the <code>null</code> element is not
+	 * @param elem may be {@code null}, if the {@code null} element is not
 	 *             already in the set of known objects.
 	 */
 	public void addAsHighest(E elem) {
@@ -215,7 +215,7 @@ public class ExtensionalComparator<E> extends ForwardingMap<E, Integer> implemen
 	 * construction.
 	 * </p>
 	 * <p>
-	 * Comparing the <code>null</code> element is allowed, if it is one of the
+	 * Comparing the {@code null} element is allowed, if it is one of the
 	 * objects known to this comparator.
 	 * </p>
 	 * 
@@ -248,7 +248,7 @@ public class ExtensionalComparator<E> extends ForwardingMap<E, Integer> implemen
 	/**
 	 * Removes an element from this ordering if it is present.
 	 * 
-	 * @param o <code>null</code> is allowed.
+	 * @param o {@code null} is allowed.
 	 * @return the previous rank associated with key, or null if there was no
 	 *         mapping for key.
 	 */

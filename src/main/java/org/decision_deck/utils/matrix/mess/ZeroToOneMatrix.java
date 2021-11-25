@@ -14,7 +14,7 @@ public class ZeroToOneMatrix<R, C> extends ForwardingSparseMatrix<R, C>
 	 * Creates a new matrix decorating the given matrix by ensuring every element it
 	 * contains is between zero and one.
 	 * 
-	 * @param delegate not <code>null</code>, must be empty.
+	 * @param delegate not {@code null}, must be empty.
 	 */
 	public ZeroToOneMatrix(SparseMatrixD<R, C> delegate) {
 		super(new ValidatingDecoratedMatrix<R, C>(delegate, PredicateUtils.inBetween(0d, 1d)));

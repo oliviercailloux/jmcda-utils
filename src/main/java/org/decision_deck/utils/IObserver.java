@@ -14,7 +14,7 @@ public interface IObserver<O> {
 	 * Called after an update happened.
 	 * 
 	 * @param updated an information about some object that has been updated,
-	 *                possibly <code>null</code> except if the observed object
+	 *                possibly {@code null} except if the observed object
 	 *                specifies otherwize.
 	 */
 	public void update(O updated);

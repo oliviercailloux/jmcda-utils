@@ -49,9 +49,9 @@ import com.google.common.collect.Sets;
  * </p>
  * <p>
  * Note: this comparator imposes orderings that are inconsistent with equals.
- * This comparator guarantees <code>(x.equals(y))</code> <em>implies</em>
- * <code>(compare(x, y)==0)</code> instead of
- * <code>(compare(x, y)==0) == (x.equals(y))</code>.
+ * This comparator guarantees {@code (x.equals(y))} <em>implies</em>
+ * {@code (compare(x, y)==0)} instead of
+ * {@code (compare(x, y)==0) == (x.equals(y))}.
  * </p>
  * <p>
  * This class does not implement {@link Set} because its equals method considers
@@ -74,7 +74,7 @@ public class Preorder<E> extends AbstractCollection<E> implements Comparator<E>,
 	private static final Logger s_logger = LoggerFactory.getLogger(Preorder.class);
 
 	/**
-	 * All ranks are set, no <code>null</code> values, no empty set.
+	 * All ranks are set, no {@code null} values, no empty set.
 	 */
 	private final List<Set<E>> m_byRanks = Lists.newLinkedList();
 
@@ -97,8 +97,8 @@ public class Preorder<E> extends AbstractCollection<E> implements Comparator<E>,
 	 * ranks is the number of elements given. Otherwise, the number of ranks is less
 	 * than or equal to the number of elements.
 	 *
-	 * @param elements   not <code>null</code>.
-	 * @param comparator not <code>null</code>.
+	 * @param elements   not {@code null}.
+	 * @param comparator not {@code null}.
 	 */
 	public Preorder(Set<E> elements, Comparator<E> comparator) {
 		checkNotNull(elements);
@@ -143,7 +143,7 @@ public class Preorder<E> extends AbstractCollection<E> implements Comparator<E>,
 	 * On the contrary, in this preorder, the lowest elements belong to the rank
 	 * with the biggest rank number, and the highest elements belong to rank one.
 	 *
-	 * @return not <code>null</code>, no empty sets.
+	 * @return not {@code null}, no empty sets.
 	 */
 	public List<Set<E>> asListOfSets() {
 		return Collections.unmodifiableList(m_byRanks);
@@ -164,7 +164,7 @@ public class Preorder<E> extends AbstractCollection<E> implements Comparator<E>,
 	 * The view is currently read-only, but should be made writable in the future.
 	 * </p>
 	 *
-	 * @return not <code>null</code>.
+	 * @return not {@code null}.
 	 */
 	public Set<E> asSet() {
 		return new AbstractSet<E>() {
@@ -213,8 +213,8 @@ public class Preorder<E> extends AbstractCollection<E> implements Comparator<E>,
 	}
 
 	/**
-	 * @param element not <code>null</code>.
-	 * @return the rank of the given element, or <code>null</code> iff the given
+	 * @param element not {@code null}.
+	 * @return the rank of the given element, or {@code null} iff the given
 	 *         element is not contained in this object.
 	 */
 	public Integer getRank(E element) {
@@ -228,7 +228,7 @@ public class Preorder<E> extends AbstractCollection<E> implements Comparator<E>,
 	 * lowest rank, although rank one contains the elements this preorder considers
 	 * greatest. This is conformant to the natural integer ordering.
 	 *
-	 * @return not <code>null</code>, empty iff this object is empty.
+	 * @return not {@code null}, empty iff this object is empty.
 	 */
 	public NavigableSet<Integer> getRanks() {
 		final Range<Integer> range = Range.closed(Integer.valueOf(1), Integer.valueOf(m_byRanks.size()));
@@ -256,7 +256,7 @@ public class Preorder<E> extends AbstractCollection<E> implements Comparator<E>,
 	 * in iteration order of the returned set, as the returned set is ordered from
 	 * lowest to highest.
 	 *
-	 * @return <code>null</code> iff this preorder is not a total order.
+	 * @return {@code null} iff this preorder is not a total order.
 	 */
 	public NavigableSet<E> getTotalOrder() {
 		final ExtentionalTotalOrder<E> order = ExtentionalTotalOrder.create();
@@ -302,7 +302,7 @@ public class Preorder<E> extends AbstractCollection<E> implements Comparator<E>,
 	 * </p>
 	 * <p>
 	 * If the given element already exists at the given rank and is the only element
-	 * at this rank, nothing changes and this method returns <code>false</code>.
+	 * at this rank, nothing changes and this method returns {@code false}.
 	 * </p>
 	 * <p>
 	 * <b>Warning:</b> When using this method with an element which already exists
@@ -314,8 +314,8 @@ public class Preorder<E> extends AbstractCollection<E> implements Comparator<E>,
 	 *
 	 * @param content may not already exist at a better rank than the given one.
 	 * @param rank    between one and the number of ranks plus one.
-	 * @return <code>true</code> iff this method call changed the state of this
-	 *         preorder, <code>false</code> iff the given element already existed at
+	 * @return {@code true} iff this method call changed the state of this
+	 *         preorder, {@code false} iff the given element already existed at
 	 *         the given rank and was alone in its equivalence class.
 	 */
 	public boolean insertAsNewRank(E content, int rank) {
@@ -349,7 +349,7 @@ public class Preorder<E> extends AbstractCollection<E> implements Comparator<E>,
 	 * Returns an iterator over the elements in this preorder. Iteration order
 	 * matches the one from the preorder.
 	 *
-	 * @return not <code>null</code>.
+	 * @return not {@code null}.
 	 */
 	@Override
 	public Iterator<E> iterator() {
@@ -385,11 +385,11 @@ public class Preorder<E> extends AbstractCollection<E> implements Comparator<E>,
 	 * the element is already the unique worst one (with no ex-æquos), in which case
 	 * this method will throw an exception.
 	 *
-	 * @param element not <code>null</code>.
+	 * @param element not {@code null}.
 	 * @param rank    between 1 and the number of ranks + 1, inclusive. 1 is the
 	 *                best, or highest, rank.
 	 *
-	 * @return <code>true</code> iff the element has been added or moved, thus was
+	 * @return {@code true} iff the element has been added or moved, thus was
 	 *         not already in the set of elements at that rank.
 	 */
 	public boolean put(E element, int rank) {
@@ -426,10 +426,10 @@ public class Preorder<E> extends AbstractCollection<E> implements Comparator<E>,
 	 * {@link #put(Object, int)}. Elements already existing at an other rank are
 	 * moved.
 	 *
-	 * @param elements not <code>null</code>, but may be empty.
+	 * @param elements not {@code null}, but may be empty.
 	 * @param rank     the rank where to put the objects.
-	 * @return <code>true</code> iff the call changed the ranking, thus
-	 *         <code>false</code> iff every elements were already in the given rank.
+	 * @return {@code true} iff the call changed the ranking, thus
+	 *         {@code false} iff every elements were already in the given rank.
 	 */
 	public boolean put(Set<E> elements, int rank) {
 		checkNotNull(elements);
@@ -493,9 +493,9 @@ public class Preorder<E> extends AbstractCollection<E> implements Comparator<E>,
 	 * that it is alone in its equivalence class), this method call does not change
 	 * this preorder content.
 	 *
-	 * @param element not <code>null</code>.
-	 * @return <code>true</code> iff any element has changed position or the given
-	 *         element has been added, or equivalently, <code>false</code> iff the
+	 * @param element not {@code null}.
+	 * @return {@code true} iff any element has changed position or the given
+	 *         element has been added, or equivalently, {@code false} iff the
 	 *         element was already the unique best one.
 	 */
 	public boolean putAsHighest(E element) {
@@ -524,8 +524,8 @@ public class Preorder<E> extends AbstractCollection<E> implements Comparator<E>,
 	 * ranks count by one, except if the element already was the unique (with no
 	 * ex-æquo) lowest one.
 	 *
-	 * @param element not <code>null</code>.
-	 * @return <code>true</code> iff this object changed as a result of this call.
+	 * @param element not {@code null}.
+	 * @return {@code true} iff this object changed as a result of this call.
 	 */
 	public boolean putAsLowest(E element) {
 		if (m_ranks.get(element) != null && m_ranks.get(element).intValue() == getRanksCount()) {
@@ -563,8 +563,8 @@ public class Preorder<E> extends AbstractCollection<E> implements Comparator<E>,
 	/**
 	 * Removes the given element from this object, if it is present.
 	 *
-	 * @param element not <code>null</code>.
-	 * @return <code>true</code> iff this preorder contained the given element prior
+	 * @param element not {@code null}.
+	 * @return {@code true} iff this preorder contained the given element prior
 	 *         to this call.
 	 */
 	@Override

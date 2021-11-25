@@ -9,7 +9,7 @@ public class ForwardingSetChangeableDelegate<T> extends ForwardingSet<T> impleme
 	private Set<T> m_delegateSet;
 
 	/**
-	 * @param delegate not <code>null</code>.
+	 * @param delegate not {@code null}.
 	 */
 	public void setDelegate(Set<T> delegate) {
 		Preconditions.checkNotNull(delegate);
@@ -17,7 +17,7 @@ public class ForwardingSetChangeableDelegate<T> extends ForwardingSet<T> impleme
 	}
 
 	/**
-	 * @param delegate not <code>null</code>.
+	 * @param delegate not {@code null}.
 	 */
 	public ForwardingSetChangeableDelegate(Set<T> delegate) {
 		Preconditions.checkNotNull(delegate);
@@ -30,7 +30,7 @@ public class ForwardingSetChangeableDelegate<T> extends ForwardingSet<T> impleme
 	}
 
 	/**
-	 * @param delegate not <code>null</code>.
+	 * @param delegate not {@code null}.
 	 * @return a new object.
 	 */
 	static public <T> ForwardingSetChangeableDelegate<T> create(Set<T> delegate) {

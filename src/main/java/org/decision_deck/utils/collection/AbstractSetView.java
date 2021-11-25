@@ -24,7 +24,7 @@ public abstract class AbstractSetView<T> extends AbstractSet<T> implements Set<T
 	private final Set<T> m_delegateSet;
 
 	/**
-	 * @param delegateSet not <code>null</code>.
+	 * @param delegateSet not {@code null}.
 	 */
 	public AbstractSetView(Set<T> delegateSet) {
 		Preconditions.checkNotNull(delegateSet);
@@ -65,7 +65,7 @@ public abstract class AbstractSetView<T> extends AbstractSet<T> implements Set<T
 	/**
 	 * Must remove the object from the set. The default implementation calls
 	 * {@link Set#remove(Object)} on the underlying set and ensures it returns
-	 * <code>true</code>. For consistency, this method must have the same effect as
+	 * {@code true}. For consistency, this method must have the same effect as
 	 * the underlying set iterator remove method.
 	 * 
 	 * @param object exists according to {@link #contains(Object)}.

@@ -13,7 +13,7 @@ import com.google.common.collect.Table;
  * </P>
  * <P>
  * Vocabulary note: an entry can be a value or can be null, a value is a double
- * between zero and one. The D suffix stands for <code>double</code>.
+ * between zero and one. The D suffix stands for {@code double}.
  * </P>
  * <P>
  * Note that, although this interface is read-only, the underlying object may be
@@ -32,7 +32,7 @@ public interface SparseMatrixDRead<R, C> {
 	 * be read and not be modified (e.g. through Table#remove method calls) as not
 	 * everything is implemented yet.
 	 * 
-	 * @return not <code>null</code>.
+	 * @return not {@code null}.
 	 */
 	public Table<R, C, Double> asTable();
 
@@ -42,10 +42,10 @@ public interface SparseMatrixDRead<R, C> {
 	 * mapping are not more different than the given allowed imprecision.
 	 * 
 	 * @param m2          the matrix to which to compare this object for approximate
-	 *                    equality. If <code>null</code>, this method returns
-	 *                    <code>false</code>.
+	 *                    equality. If {@code null}, this method returns
+	 *                    {@code false}.
 	 * @param imprecision the maximal imprecision allowed.
-	 * @return <code>true</code> iff the given matrix is approximately equal to this
+	 * @return {@code true} iff the given matrix is approximately equal to this
 	 *         one.
 	 */
 	public boolean approxEquals(SparseMatrixDRead<R, C> m2, double imprecision);
@@ -56,8 +56,8 @@ public interface SparseMatrixDRead<R, C> {
 	 * small difference in one value will cause two matrixes to be unequal. See
 	 * {@link #approxEquals(SparseMatrixDRead, double)} if this can be a problem.
 	 * 
-	 * @param obj the object to compare. May be <code>null</code>.
-	 * @return <code>true</code> iff the given object is equal to this matrix.
+	 * @param obj the object to compare. May be {@code null}.
+	 * @return {@code true} iff the given object is equal to this matrix.
 	 * @see java.lang.Object#equals(java.lang.Object)
 	 */
 	@Override
@@ -69,7 +69,7 @@ public interface SparseMatrixDRead<R, C> {
 	 * reflected in the returned set.
 	 * 
 	 * @return the objects such that at least one value exists in this matrix at a
-	 *         position having the object as column. Not <code>null</code>. Empty
+	 *         position having the object as column. Not {@code null}. Empty
 	 *         iff this matrix is empty.
 	 */
 	public Set<C> getColumns();
@@ -77,12 +77,12 @@ public interface SparseMatrixDRead<R, C> {
 	/**
 	 * <p>
 	 * Returns the value at the position composed by the given row and column, or
-	 * <code>null</code> if there is none.
+	 * {@code null} if there is none.
 	 * </p>
 	 * 
-	 * @param row    not <code>null</code>.
-	 * @param column not <code>null</code>.
-	 * @return the double value at that position, or <code>null</code>.
+	 * @param row    not {@code null}.
+	 * @param column not {@code null}.
+	 * @return the double value at that position, or {@code null}.
 	 */
 	public Double getEntry(R row, C column);
 
@@ -93,12 +93,12 @@ public interface SparseMatrixDRead<R, C> {
 	 * </p>
 	 * <p>
 	 * Use this method rather than {@link #getEntry(Object, Object)} if a value (non
-	 * <code>null</code>) is expected at the given position: in case a value is
+	 * {@code null}) is expected at the given position: in case a value is
 	 * missing, this method generates a clearer exception.
 	 * </p>
 	 * 
-	 * @param row    not <code>null</code>.
-	 * @param column not <code>null</code>.
+	 * @param row    not {@code null}.
+	 * @param column not {@code null}.
 	 * @return the double value at that position.
 	 */
 	public double getValue(R row, C column);
@@ -110,7 +110,7 @@ public interface SparseMatrixDRead<R, C> {
 	 * objects removal from the returned set).
 	 * 
 	 * @return the objects such that at least one value exists in this matrix at a
-	 *         position having the object as row. Not <code>null</code>. Empty iff
+	 *         position having the object as row. Not {@code null}. Empty iff
 	 *         this matrix is empty.
 	 */
 	public Set<R> getRows();
@@ -137,14 +137,14 @@ public interface SparseMatrixDRead<R, C> {
 	 * complete.
 	 * </P>
 	 * 
-	 * @return <code>true</code> iff this matrix is complete.
+	 * @return {@code true} iff this matrix is complete.
 	 */
 	public boolean isComplete();
 
 	/**
 	 * Checks whether this matrix contains no value.
 	 * 
-	 * @return <code>true</code> iff the matrix contains no value.
+	 * @return {@code true} iff the matrix contains no value.
 	 */
 	public boolean isEmpty();
 }

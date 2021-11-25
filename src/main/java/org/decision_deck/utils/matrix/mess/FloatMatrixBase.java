@@ -31,7 +31,7 @@ public class FloatMatrixBase<R, C> implements SparseMatrixDRead<R, C> {
 	}
 
 	/**
-	 * @param predicate <code>null</code> for always <code>true</code>.
+	 * @param predicate {@code null} for always {@code true}.
 	 */
 	public FloatMatrixBase(Predicate<Double> predicate) {
 		// m_table = HashBasedTable.create();

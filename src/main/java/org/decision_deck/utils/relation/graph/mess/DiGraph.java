@@ -18,7 +18,7 @@ public interface DiGraph<V> {
 	 * vertex, and returns the created edge. Some graphs do not allow
 	 * edge-multiplicity. In such cases, if the graph already contains an edge from
 	 * the specified source to the specified target, than this method does not
-	 * change the graph and returns <code>null</code>.
+	 * change the graph and returns {@code null}.
 	 * 
 	 * <p>
 	 * The source and target vertices must already be contained in this graph. If
@@ -26,12 +26,12 @@ public interface DiGraph<V> {
 	 * </p>
 	 * 
 	 * <p>
-	 * This method creates the new edge <code>e</code> using this graph's
-	 * <code>EdgeFactory</code>. For the new edge to be added <code>e</code> must
+	 * This method creates the new edge {@code e} using this graph's
+	 * {@code EdgeFactory}. For the new edge to be added {@code e} must
 	 * <i>not</i> be equal to any other edge the graph (even if the graph allows
 	 * edge-multiplicity). More formally, the graph must not contain any edge
-	 * <code>e2</code> such that <code>e2.equals(e)</code>. If such <code>
-	 * e2</code> is found then the newly created edge <code>e</code> is abandoned,
+	 * {@code e2} such that {@code e2.equals(e)}. If such <code>
+	 * e2</code> is found then the newly created edge {@code e} is abandoned,
 	 * the method leaves this graph unchanged returns <code>
 	 * null</code>.
 	 * </p>
@@ -52,8 +52,8 @@ public interface DiGraph<V> {
 
 	/**
 	 * Adds the specified vertex to this graph if not already present. More
-	 * formally, adds the specified vertex, <code>v</code>, to this graph if this
-	 * graph contains no vertex <code>u</code> such that <code>
+	 * formally, adds the specified vertex, {@code v}, to this graph if this
+	 * graph contains no vertex {@code u} such that <code>
 	 * u.equals(v)</code>. If this graph already contains such vertex, the call
 	 * leaves this graph unchanged and returns <tt>false</tt>. In combination with
 	 * the restriction on constructors, this ensures that graphs never contain
@@ -74,7 +74,7 @@ public interface DiGraph<V> {
 	 * the source vertex to the target vertex. In undirected graphs the same result
 	 * is obtained when source and target are inverted. If any of the specified
 	 * vertices does not exist in the graph, or if is <code>
-	 * null</code>, returns <code>false</code>.
+	 * null</code>, returns {@code false}.
 	 * 
 	 * @param sourceVertex source vertex of the edge.
 	 * @param targetVertex target vertex of the edge.
@@ -86,8 +86,8 @@ public interface DiGraph<V> {
 	/**
 	 * Returns <tt>true</tt> if this graph contains the specified vertex. More
 	 * formally, returns <tt>true</tt> if and only if this graph contains a vertex
-	 * <code>u</code> such that <code>u.equals(v)</code>. If the specified vertex is
-	 * <code>null</code> returns <code>false</code>.
+	 * {@code u} such that {@code u.equals(v)}. If the specified vertex is
+	 * {@code null} returns {@code false}.
 	 * 
 	 * @param v vertex whose presence in this graph is to be tested.
 	 * 
@@ -121,28 +121,28 @@ public interface DiGraph<V> {
 	 * @return a set of all edges touching the specified vertex.
 	 * 
 	 * @throws IllegalArgumentException if vertex is not found in the graph.
-	 * @throws NullPointerException     if vertex is <code>null</code>.
+	 * @throws NullPointerException     if vertex is {@code null}.
 	 */
 	public Set<Edge<V>> edgesOf(V vertex);
 
 	/**
 	 * Removes the specified vertex from this graph including all its touching edges
 	 * if present. More formally, if the graph contains a vertex <code>
-	 * u</code> such that <code>u.equals(v)</code>, the call removes all edges that
-	 * touch <code>u</code> and then removes <code>u</code> itself. If no such
-	 * <code>u</code> is found, the call leaves the graph unchanged. Returns
+	 * u</code> such that {@code u.equals(v)}, the call removes all edges that
+	 * touch {@code u} and then removes {@code u} itself. If no such
+	 * {@code u} is found, the call leaves the graph unchanged. Returns
 	 * <tt>true</tt> if the graph contained the specified vertex. (The graph will
 	 * not contain the specified vertex once the call returns).
 	 * 
 	 * <p>
-	 * If the specified vertex is <code>null</code> returns <code>
+	 * If the specified vertex is {@code null} returns <code>
 	 * false</code>.
 	 * </p>
 	 * 
 	 * @param v vertex to be removed from this graph, if present.
 	 * 
-	 * @return <code>true</code> if the graph contained the specified vertex;
-	 *         <code>false</code> otherwise.
+	 * @return {@code true} if the graph contained the specified vertex;
+	 *         {@code false} otherwise.
 	 */
 	public boolean removeVertex(V v);
 
@@ -184,12 +184,12 @@ public interface DiGraph<V> {
 	/**
 	 * Removes an edge going from source vertex to target vertex, if such vertices
 	 * and such edge exist in this graph. Returns the edge if removed or
-	 * <code>null</code> otherwise.
+	 * {@code null} otherwise.
 	 * 
 	 * @param sourceVertex source vertex of the edge.
 	 * @param targetVertex target vertex of the edge.
 	 * 
-	 * @return The removed edge, or <code>null</code> if no edge removed.
+	 * @return The removed edge, or {@code null} if no edge removed.
 	 */
 	public Edge<V> removeEdge(V sourceVertex, V targetVertex);
 

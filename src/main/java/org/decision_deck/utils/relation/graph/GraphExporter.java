@@ -63,7 +63,7 @@ public class GraphExporter {
 	/**
 	 * <p>
 	 * An edge in a directed graph. Can also be viewed as a directed pair. None of
-	 * the elements of the pair may be <code>null</code>. Note that this object
+	 * the elements of the pair may be {@code null}. Note that this object
 	 * represents an ordered pair, or a 2-tuple, which is different than an
 	 * unordered pair or <em>couple</em> in French.
 	 * </p>
@@ -151,14 +151,14 @@ public class GraphExporter {
 		}
 
 		/**
-		 * @return the first element of the pair. May be <code>null</code>.
+		 * @return the first element of the pair. May be {@code null}.
 		 */
 		public V getSource() {
 			return m_elt1;
 		}
 
 		/**
-		 * @return the second element of the pair. May be <code>null</code>.
+		 * @return the second element of the pair. May be {@code null}.
 		 */
 		public V getTarget() {
 			return m_elt2;
@@ -177,7 +177,7 @@ public class GraphExporter {
 		public String toString() {
 			return LEFT_ANGLE_BRACKET + m_elt1.toString() + ", " + m_elt2 + RIGHT_ANGLE_BRACKET;
 
-			/** This would fail on <code>null</code> elements. */
+			/** This would fail on {@code null} elements. */
 			// return getToStringFunction(Functions.toStringFunction(),
 			// Functions.toStringFunction()).apply(this);
 		}
@@ -187,14 +187,14 @@ public class GraphExporter {
 		 * Retrieves a function which, given an edge, gives its string form in the form
 		 * of the transformation of the first element using the given function, a comma
 		 * to separate them, and the transformation of the second element, surrounded by
-		 * less than and greater than signs (to indicate a tuple). No <code>null</code>
+		 * less than and greater than signs (to indicate a tuple). No {@code null}
 		 * pairs are accepted by the function, but the elements themselves may be
-		 * <code>null</code> iff the given transformation functions accept those.
+		 * {@code null} iff the given transformation functions accept those.
 		 * </p>
 		 * <p>
 		 * This provides an easy way to get short debug strings. E.g. to get a string
 		 * representing the contents of a set of pairs of alternatives <em>s</em>, use
-		 * <code>Joiner.on(", ").join(Iterables.transform(s, Edge.getToStringFunction(Alternative.getIdFct(), Alternative.getIdFct())))</code>
+		 * {@code Joiner.on(", ").join(Iterables.transform(s, Edge.getToStringFunction(Alternative.getIdFct(), Alternative.getIdFct())))}
 		 * .
 		 * </p>
 		 *
@@ -204,7 +204,7 @@ public class GraphExporter {
 		 * @param targetToString a function which transforms the second element of a
 		 *                       pair to a string.
 		 *
-		 * @return not <code>null</code>.
+		 * @return not {@code null}.
 		 */
 		static public <V> Function<Edge<V>, String> getToStringFunction(final Function<V, String> sourceToString,
 				final Function<V, String> targetToString) {
@@ -268,8 +268,8 @@ public class GraphExporter {
 	 * </code>
 	 * </P>
 	 *
-	 * @param from a stream in DOT format. Not <code>null</code>.
-	 * @param to   the sink that will receive the SVG output. Not <code>null</code>.
+	 * @param from a stream in DOT format. Not {@code null}.
+	 * @param to   the sink that will receive the SVG output. Not {@code null}.
 	 * @throws IOException          if an I/O error occurs.
 	 * @throws InterruptedException if the current thread is interrupted by another
 	 *                              thread while it is waiting.
@@ -311,15 +311,15 @@ public class GraphExporter {
 	 * <P>
 	 * Exports a jgrapht-like graph to an SVG picture. This goes through dot
 	 * exporting. To save to a file, use
-	 * <code>Files.asCharSink(new File(filename), Charsets.US_ASCII)</code>.
+	 * {@code Files.asCharSink(new File(filename), Charsets.US_ASCII)}.
 	 * </P>
 	 * <P>
-	 * The <code>vertexNamer</code> will be used to name the vertices. The default
+	 * The {@code vertexNamer} will be used to name the vertices. The default
 	 * is to call {@link #toString()} on vertices.
 	 * </P>
 	 *
-	 * @param from    not <code>null</code>.
-	 * @param svgSink not <code>null</code>.
+	 * @param from    not {@code null}.
+	 * @param svgSink not {@code null}.
 	 * @throws IOException          if an I/O error occurs.
 	 * @throws InterruptedException if the current thread is interrupted by another
 	 *                              thread while it is waiting for the dot export to
@@ -342,14 +342,14 @@ public class GraphExporter {
 	}
 
 	/**
-	 * @return not <code>null</code>.
+	 * @return not {@code null}.
 	 */
 	public Function<Object, String> getVertexNamer() {
 		return m_vertexNamer;
 	}
 
 	/**
-	 * @param vertexNamer set to <code>null</code> to restore default behavior.
+	 * @param vertexNamer set to {@code null} to restore default behavior.
 	 */
 	public void setVertexNamer(Function<Object, String> vertexNamer) {
 		if (vertexNamer == null) {

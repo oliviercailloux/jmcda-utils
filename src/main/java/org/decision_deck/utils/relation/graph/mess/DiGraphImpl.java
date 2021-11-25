@@ -10,7 +10,7 @@ import org.jgrapht.DirectedGraph;
 import org.jgrapht.graph.DefaultDirectedGraph;
 
 /**
- * TODO replace the Edge by Edge, which can't have <code>null</code> elements,
+ * TODO replace the Edge by Edge, which can't have {@code null} elements,
  * and has source and target.
  * 
  * @author Olivier Cailloux
@@ -35,7 +35,7 @@ public class DiGraphImpl<V> implements DiGraph<V> {
 	/**
 	 * Creates a new object delegating to the given graph.
 	 * 
-	 * @param graph not <code>null</code>, must be empty.
+	 * @param graph not {@code null}, must be empty.
 	 */
 	public DiGraphImpl(DefaultDirectedGraph<V, Edge<V>> graph) {
 		checkNotNull(graph);

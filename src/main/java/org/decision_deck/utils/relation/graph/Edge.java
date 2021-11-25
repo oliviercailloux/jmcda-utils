@@ -9,7 +9,7 @@ import com.google.common.collect.Ordering;
 /**
  * <p>
  * An edge in a directed graph. Can also be viewed as a directed pair. None of
- * the elements of the pair may be <code>null</code>. Note that this object
+ * the elements of the pair may be {@code null}. Note that this object
  * represents an ordered pair, or a 2-tuple, which is different than an
  * unordered pair or <em>couple</em> in French.
  * </p>
@@ -96,14 +96,14 @@ public class Edge<V> {
 	}
 
 	/**
-	 * @return the first element of the pair. May be <code>null</code>.
+	 * @return the first element of the pair. May be {@code null}.
 	 */
 	public V getSource() {
 		return m_elt1;
 	}
 
 	/**
-	 * @return the second element of the pair. May be <code>null</code>.
+	 * @return the second element of the pair. May be {@code null}.
 	 */
 	public V getTarget() {
 		return m_elt2;
@@ -122,7 +122,7 @@ public class Edge<V> {
 	public String toString() {
 		return LEFT_ANGLE_BRACKET + m_elt1.toString() + ", " + m_elt2 + RIGHT_ANGLE_BRACKET;
 
-		/** This would fail on <code>null</code> elements. */
+		/** This would fail on {@code null} elements. */
 		// return getToStringFunction(Functions.toStringFunction(),
 		// Functions.toStringFunction()).apply(this);
 	}
@@ -132,14 +132,14 @@ public class Edge<V> {
 	 * Retrieves a function which, given an edge, gives its string form in the form
 	 * of the transformation of the first element using the given function, a comma
 	 * to separate them, and the transformation of the second element, surrounded by
-	 * less than and greater than signs (to indicate a tuple). No <code>null</code>
+	 * less than and greater than signs (to indicate a tuple). No {@code null}
 	 * pairs are accepted by the function, but the elements themselves may be
-	 * <code>null</code> iff the given transformation functions accept those.
+	 * {@code null} iff the given transformation functions accept those.
 	 * </p>
 	 * <p>
 	 * This provides an easy way to get short debug strings. E.g. to get a string
 	 * representing the contents of a set of pairs of alternatives <em>s</em>, use
-	 * <code>Joiner.on(", ").join(Iterables.transform(s, Edge.getToStringFunction(Alternative.getIdFct(), Alternative.getIdFct())))</code>
+	 * {@code Joiner.on(", ").join(Iterables.transform(s, Edge.getToStringFunction(Alternative.getIdFct(), Alternative.getIdFct())))}
 	 * .
 	 * </p>
 	 *
@@ -149,7 +149,7 @@ public class Edge<V> {
 	 * @param targetToString a function which transforms the second element of a
 	 *                       pair to a string.
 	 *
-	 * @return not <code>null</code>.
+	 * @return not {@code null}.
 	 */
 	static public <V> Function<Edge<V>, String> getToStringFunction(final Function<V, String> sourceToString,
 			final Function<V, String> targetToString) {

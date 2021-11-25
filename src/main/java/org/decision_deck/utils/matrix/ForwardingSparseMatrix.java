@@ -5,7 +5,7 @@ public class ForwardingSparseMatrix<R, C> extends ForwardingSparseMatrixRead<R, 
 	/**
 	 * Creates a new matrix forwarding to the given delegate.
 	 * 
-	 * @param delegate not <code>null</code>.
+	 * @param delegate not {@code null}.
 	 */
 	public ForwardingSparseMatrix(SparseMatrixD<R, C> delegate) {
 		super(delegate);

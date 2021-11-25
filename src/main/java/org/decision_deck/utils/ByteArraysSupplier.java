@@ -22,7 +22,7 @@ public class ByteArraysSupplier extends ByteSink {
 	 * to be written). The iteration order of the returned collection matches the
 	 * order of the requested outputs.
 	 *
-	 * @return not <code>null</code>.
+	 * @return not {@code null}.
 	 */
 	public Collection<ByteArrayOutputStream> getArrays() {
 		return Collections.unmodifiableSet(m_arrays);

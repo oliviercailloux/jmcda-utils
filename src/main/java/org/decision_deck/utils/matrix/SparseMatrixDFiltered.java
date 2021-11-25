@@ -18,7 +18,7 @@ public class SparseMatrixDFiltered<R, C> implements SparseMatrixDRead<R, C> {
 
 	private final SparseMatrixDRead<R, C> m_delegate;
 	/**
-	 * <code>null</code> for no restriction.
+	 * {@code null} for no restriction.
 	 */
 	private final Predicate<R> m_rowPredicate;
 	private final Predicate<C> m_columnPredicate;
@@ -41,9 +41,9 @@ public class SparseMatrixDFiltered<R, C> implements SparseMatrixDRead<R, C> {
 	}
 
 	/**
-	 * @param delegate        not <code>null</code>.
-	 * @param rowPredicate    <code>null</code> for no restriction.
-	 * @param columnPredicate <code>null</code> for no restriction.
+	 * @param delegate        not {@code null}.
+	 * @param rowPredicate    {@code null} for no restriction.
+	 * @param columnPredicate {@code null} for no restriction.
 	 */
 	public SparseMatrixDFiltered(SparseMatrixDRead<R, C> delegate, Predicate<R> rowPredicate,
 			Predicate<C> columnPredicate) {

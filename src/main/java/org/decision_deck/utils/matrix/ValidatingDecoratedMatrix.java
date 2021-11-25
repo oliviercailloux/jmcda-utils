@@ -8,7 +8,7 @@ import com.google.common.base.Predicate;
 public class ValidatingDecoratedMatrix<R, C> extends ForwardingSparseMatrix<R, C> implements SparseMatrixD<R, C> {
 
 	/**
-	 * not <code>null</code>.
+	 * not {@code null}.
 	 */
 	private final Predicate<Double> m_valuePredicate;
 
@@ -16,7 +16,7 @@ public class ValidatingDecoratedMatrix<R, C> extends ForwardingSparseMatrix<R, C
 	 * Retrieves the predicate used in this object. Every value in this matrix
 	 * satisfies the returned predicate.
 	 * 
-	 * @return not <code>null</code>.
+	 * @return not {@code null}.
 	 */
 	public Predicate<Double> getValuePredicate() {
 		return m_valuePredicate;
@@ -31,8 +31,8 @@ public class ValidatingDecoratedMatrix<R, C> extends ForwardingSparseMatrix<R, C
 	 * This object assumes ownership of the delegate.
 	 * </p>
 	 * 
-	 * @param delegate       not <code>null</code>, must be empty.
-	 * @param valuePredicate not <code>null</code>.
+	 * @param delegate       not {@code null}, must be empty.
+	 * @param valuePredicate not {@code null}.
 	 */
 	public ValidatingDecoratedMatrix(SparseMatrixD<R, C> delegate, Predicate<Double> valuePredicate) {
 		super(delegate);
@@ -47,8 +47,8 @@ public class ValidatingDecoratedMatrix<R, C> extends ForwardingSparseMatrix<R, C
 	 * 
 	 * @param                <R> the row type.
 	 * @param                <C> the column type.
-	 * @param valuePredicate not <code>null</code>.
-	 * @return not <code>null</code>.
+	 * @param valuePredicate not {@code null}.
+	 * @return not {@code null}.
 	 */
 	static public <R, C> ValidatingDecoratedMatrix<R, C> create(Predicate<Double> valuePredicate) {
 		return new ValidatingDecoratedMatrix<R, C>(Matrixes.<R, C>newSparseD(), valuePredicate);

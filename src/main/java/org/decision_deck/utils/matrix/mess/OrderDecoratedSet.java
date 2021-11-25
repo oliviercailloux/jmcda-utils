@@ -42,35 +42,35 @@ public class OrderDecoratedSet<E> extends ForwardingSet<E> implements Set<E> {
 	 * order as the given decorated set, to begin with.
 	 * 
 	 * @param          <E> the type of elements used.
-	 * @param delegate not <code>null</code>.
-	 * @return not <code>null</code>.
+	 * @param delegate not {@code null}.
+	 * @return not {@code null}.
 	 */
 	static public <E> OrderDecoratedSet<E> create(Set<E> delegate) {
 		return new OrderDecoratedSet<E>(delegate);
 	}
 
 	/**
-	 * The decorated set, not <code>null</code>.
+	 * The decorated set, not {@code null}.
 	 */
 	private final Set<E> m_delegate;
 	/**
-	 * May be <code>null</code>. If not <code>null</code>, the general comparator to
+	 * May be {@code null}. If not {@code null}, the general comparator to
 	 * use to order, defining the ordered set.
 	 */
 	private Comparator<? super E> m_comparator;
 	/**
-	 * May be <code>null</code>. If not <code>null</code>, the subset comparator to
+	 * May be {@code null}. If not {@code null}, the subset comparator to
 	 * use to order, defining the ordered set.
 	 */
 	private ExtensionalComparator<E> m_subsetComparator;
 	/**
-	 * Is <code>null</code> iff no general comparator is defined. If not
-	 * <code>null</code>, defines the ordering shown by this object.
+	 * Is {@code null} iff no general comparator is defined. If not
+	 * {@code null}, defines the ordering shown by this object.
 	 */
 	private NavigableSet<E> m_orderedSetGeneral;
 	/**
-	 * Is <code>null</code> iff no subset comparator is defined. If not
-	 * <code>null</code>, defines the ordering shown by this object.
+	 * Is {@code null} iff no subset comparator is defined. If not
+	 * {@code null}, defines the ordering shown by this object.
 	 */
 	private ExtentionalTotalOrder<E> m_orderedSetFromSubsetComparator;
 
@@ -79,7 +79,7 @@ public class OrderDecoratedSet<E> extends ForwardingSet<E> implements Set<E> {
 	 * given by the delegate. Therefore the returned set has the same iteration
 	 * order as the given decorated set, to begin with.
 	 * 
-	 * @param delegate not <code>null</code>.
+	 * @param delegate not {@code null}.
 	 */
 	public OrderDecoratedSet(Set<E> delegate) {
 		checkNotNull(delegate);
@@ -159,7 +159,7 @@ public class OrderDecoratedSet<E> extends ForwardingSet<E> implements Set<E> {
 	 * Switches this object to comparator mode. Any previously set ordering
 	 * information is lost.
 	 * 
-	 * @param comparator not <code>null</code>, must be a general comparator (i.e.
+	 * @param comparator not {@code null}, must be a general comparator (i.e.
 	 *                   not a {@link ExtensionalComparator}).
 	 */
 	public void setComparator(Comparator<E> comparator) {
@@ -170,7 +170,7 @@ public class OrderDecoratedSet<E> extends ForwardingSet<E> implements Set<E> {
 	}
 
 	/**
-	 * @param subsetComparator not <code>null</code>.
+	 * @param subsetComparator not {@code null}.
 	 */
 	public void setSubsetComparator(ExtensionalComparator<E> subsetComparator) {
 		checkNotNull(subsetComparator);
@@ -223,7 +223,7 @@ public class OrderDecoratedSet<E> extends ForwardingSet<E> implements Set<E> {
 	 * underlying decorated set without modifying the ordering informations, which
 	 * is especially useful in case the ordering information is shared.
 	 * 
-	 * @return not <code>null</code>.
+	 * @return not {@code null}.
 	 */
 	public Set<E> getDecoratedSet() {
 		return m_delegate;

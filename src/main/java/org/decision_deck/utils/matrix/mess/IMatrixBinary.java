@@ -4,7 +4,7 @@ import org.decision_deck.utils.matrix.SparseMatrixDRead;
 
 /**
  * A complete matrix. When no boolean has been put at a specific position, the
- * value is <code>false</code>.
+ * value is {@code false}.
  * 
  * @author Olivier Cailloux
  * 
@@ -17,8 +17,8 @@ public interface IMatrixBinary<R, C> extends SparseMatrixDRead<R, C> {
 	 * Puts a value in this matrix at the position specified by the given row and
 	 * column.
 	 * 
-	 * @param row    not <code>null</code>.
-	 * @param column not <code>null</code>.
+	 * @param row    not {@code null}.
+	 * @param column not {@code null}.
 	 * @param value  a boolean value.
 	 * @throws IllegalArgumentException if some property of the specified row,
 	 *                                  column or value prevents it from being
@@ -31,8 +31,8 @@ public interface IMatrixBinary<R, C> extends SparseMatrixDRead<R, C> {
 	 * must exist in this matrix, that is, they must be contained in
 	 * {@link #getRows()} and {@link #getColumns()}, respectively.
 	 * 
-	 * @param row    not <code>null</code>.
-	 * @param column not <code>null</code>.
+	 * @param row    not {@code null}.
+	 * @param column not {@code null}.
 	 * @return the value.
 	 */
 	public boolean getBooleanValue(R row, C column);

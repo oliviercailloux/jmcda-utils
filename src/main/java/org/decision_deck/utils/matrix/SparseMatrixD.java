@@ -24,8 +24,8 @@ public interface SparseMatrixD<R, C> extends SparseMatrixDRead<R, C> {
 	 * Puts a value in this matrix at the position specified by the given row and
 	 * column.
 	 * 
-	 * @param row    not <code>null</code>.
-	 * @param column not <code>null</code>.
+	 * @param row    not {@code null}.
+	 * @param column not {@code null}.
 	 * @param value  any double.
 	 * @throws IllegalArgumentException if some property of the specified row,
 	 *                                  column or value prevents it from being
@@ -40,10 +40,10 @@ public interface SparseMatrixD<R, C> extends SparseMatrixDRead<R, C> {
 	 * and column. If there was no value at that position, this method has no
 	 * effect.
 	 * 
-	 * @param row    not <code>null</code>.
-	 * @param column not <code>null</code>.
+	 * @param row    not {@code null}.
+	 * @param column not {@code null}.
 	 * @return the value which was previously at the given position. Returns
-	 *         <code>null</code> iff there was no value at that position (and,
+	 *         {@code null} iff there was no value at that position (and,
 	 *         hence, nothing was removed).
 	 */
 	public Double remove(R row, C column);
@@ -53,10 +53,10 @@ public interface SparseMatrixD<R, C> extends SparseMatrixDRead<R, C> {
 	/**
 	 * Removes all values at the given row.
 	 * 
-	 * @param row not <code>null</code>.
-	 * @return <code>true</code> iff there was at least one value at the given row,
-	 *         or equivalently, <code>true</code> iff the matrix has been modified,
-	 *         or equivalently, <code>true</code> iff {@link #getRows()} reported
+	 * @param row not {@code null}.
+	 * @return {@code true} iff there was at least one value at the given row,
+	 *         or equivalently, {@code true} iff the matrix has been modified,
+	 *         or equivalently, {@code true} iff {@link #getRows()} reported
 	 *         that this row existed before calling this method.
 	 */
 	public boolean removeRow(R row);

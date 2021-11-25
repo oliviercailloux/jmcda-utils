@@ -68,13 +68,13 @@ public class Preorders {
 	 * strongly conflicting way according to the two given preorders, that is, if
 	 * one preorder gives an element strictly better than an other one and the other
 	 * preorder considers the latter as strictly better than the former, the
-	 * resulting preorder is not complete and this method returns <code>null</code>.
+	 * resulting preorder is not complete and this method returns {@code null}.
 	 * If the given preorders do not contain the same elements, the method returns
-	 * necessarily <code>null</code> as the resulting intersection is not complete.
+	 * necessarily {@code null} as the resulting intersection is not complete.
 	 * 
-	 * @param p1 not <code>null</code>.
-	 * @param p2 not <code>null</code>.
-	 * @return <code>null</code> iff the intersection does not result in a complete
+	 * @param p1 not {@code null}.
+	 * @param p2 not {@code null}.
+	 * @return {@code null} iff the intersection does not result in a complete
 	 *         preorder.
 	 */
 	static public <E> Preorder<E> getIntersection(Preorder<E> p1, Preorder<E> p2) {

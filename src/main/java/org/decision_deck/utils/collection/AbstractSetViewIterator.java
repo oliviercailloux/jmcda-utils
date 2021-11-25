@@ -12,8 +12,8 @@ public class AbstractSetViewIterator<T> implements Iterator<T> {
 	private final AbstractSetView<T> m_delegateSet;
 
 	/**
-	 * @param delegateIterator not <code>null</code>.
-	 * @param delegateSet      not <code>null</code>.
+	 * @param delegateIterator not {@code null}.
+	 * @param delegateSet      not {@code null}.
 	 */
 	public AbstractSetViewIterator(Iterator<T> delegateIterator, AbstractSetView<T> delegateSet) {
 		Preconditions.checkNotNull(delegateIterator);

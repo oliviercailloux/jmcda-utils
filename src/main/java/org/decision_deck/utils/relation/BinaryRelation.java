@@ -52,7 +52,7 @@ public interface BinaryRelation<F, T> extends Iterable<Pair<F, T>> {
 	 * converse does not necessarily hold.
 	 * </p>
 	 * 
-	 * @return not <code>null</code>.
+	 * @return not {@code null}.
 	 */
 	public Set<F> getFrom();
 
@@ -70,7 +70,7 @@ public interface BinaryRelation<F, T> extends Iterable<Pair<F, T>> {
 	 * converse does not necessarily hold.
 	 * </p>
 	 * 
-	 * @return not <code>null</code>.
+	 * @return not {@code null}.
 	 */
 	public Set<T> getTo();
 
@@ -95,13 +95,13 @@ public interface BinaryRelation<F, T> extends Iterable<Pair<F, T>> {
 	 * Checks whether this relation has an empty from and to set.
 	 * </p>
 	 * <p>
-	 * If this method returns <code>true</code>, this implies that this relation
+	 * If this method returns {@code true}, this implies that this relation
 	 * contains no related pair, but the converse does not necessarily hold. To
 	 * check whether this relation has no related pairs, use {@link #asPairs()} and
 	 * {@link Set#isEmpty()}.
 	 * </p>
 	 * 
-	 * @return <code>true</code> iff the relation has empty from and to sets.
+	 * @return {@code true} iff the relation has empty from and to sets.
 	 */
 	public boolean isEmpty();
 
@@ -133,19 +133,19 @@ public interface BinaryRelation<F, T> extends Iterable<Pair<F, T>> {
 	 * point of view of the returned set.
 	 * </p>
 	 * 
-	 * @return not <code>null</code>.
+	 * @return not {@code null}.
 	 */
 	public Set<Pair<F, T>> asPairs();
 
 	/**
 	 * Indicates whether the given pair is related according to this relation. This
-	 * is necessarily <code>false</code> if the from element does not belong to the
+	 * is necessarily {@code false} if the from element does not belong to the
 	 * from set, or the to element does not belong to the to set.
 	 * 
-	 * @param from not <code>null</code>.
-	 * @param to   not <code>null</code>.
-	 * @return whether the given <code>from</code> element is in relation with the
-	 *         <code>to</code> element.
+	 * @param from not {@code null}.
+	 * @param to   not {@code null}.
+	 * @return whether the given {@code from} element is in relation with the
+	 *         {@code to} element.
 	 */
 	public boolean contains(F from, T to);
 }

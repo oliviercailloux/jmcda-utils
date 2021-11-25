@@ -99,8 +99,8 @@ public class StringUtils {
 	 * Retrieves a string that is the given string with a first upper case letter
 	 * and the rest in lower case. The ENGLISH locale is used.
 	 *
-	 * @param string not <code>null</code>.
-	 * @return not <code>null</code>.
+	 * @param string not {@code null}.
+	 * @return not {@code null}.
 	 */
 	static public String getWithFirstCap(String string) {
 		checkNotNull(string);

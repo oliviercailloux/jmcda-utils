@@ -19,7 +19,7 @@ public class ObservableTyped<O> {
 	}
 
 	/**
-	 * @param observer not <code>null</code>.
+	 * @param observer not {@code null}.
 	 */
 	public void addObserver(final IObserver<O> observer) {
 		Preconditions.checkNotNull(observer);
@@ -34,7 +34,7 @@ public class ObservableTyped<O> {
 	}
 
 	/**
-	 * @param observer not <code>null</code>.
+	 * @param observer not {@code null}.
 	 */
 	public void deleteObserver(Observer observer) {
 		Preconditions.checkNotNull(observer);
@@ -49,7 +49,7 @@ public class ObservableTyped<O> {
 
 	/**
 	 * @param updated an information about some object that has been updated,
-	 *                possibly <code>null</code>.
+	 *                possibly {@code null}.
 	 */
 	public void notifyObserversChanged(O updated) {
 		m_observable.setChanged();

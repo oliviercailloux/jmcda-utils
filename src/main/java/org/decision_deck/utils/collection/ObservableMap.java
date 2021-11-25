@@ -14,7 +14,7 @@ public class ObservableMap<K, V> extends ForwardingMap<K, V> {
 	private final Map<K, V> m_delegate;
 
 	/**
-	 * Registers all handler methods on <code>object</code> to receive events. A
+	 * Registers all handler methods on {@code object} to receive events. A
 	 * handler method is one that is marked with the {@link Subscribe} annotation.
 	 * 
 	 * @param observer object whose handler methods should be registered.
@@ -24,7 +24,7 @@ public class ObservableMap<K, V> extends ForwardingMap<K, V> {
 	}
 
 	/**
-	 * Unregisters all handler methods on a registered <code>object</code>.
+	 * Unregisters all handler methods on a registered {@code object}.
 	 * 
 	 * @param observer object whose handler methods should be unregistered.
 	 * @throws IllegalArgumentException if the object was not previously registered.

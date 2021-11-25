@@ -113,8 +113,8 @@ public class KeyValueOrderedMap<K, V> extends AbstractMap<K, V> implements Navig
 	 * This object assumes ownership over the provided base map.
 	 * </p>
 	 * 
-	 * @param comparator not <code>null</code>.
-	 * @param baseMap    not <code>null</code>.
+	 * @param comparator not {@code null}.
+	 * @param baseMap    not {@code null}.
 	 */
 	public KeyValueOrderedMap(Comparator<Map.Entry<K, V>> comparator, Map<K, V> baseMap) {
 		m_comparator = Ordering.from(comparator);
@@ -133,7 +133,7 @@ public class KeyValueOrderedMap<K, V> extends AbstractMap<K, V> implements Navig
 	 * This is an extentional comparator. May be used only to query objects known to
 	 * this map.
 	 * 
-	 * @return not <code>null</code>.
+	 * @return not {@code null}.
 	 */
 	@Override
 	public Comparator<? super K> comparator() {

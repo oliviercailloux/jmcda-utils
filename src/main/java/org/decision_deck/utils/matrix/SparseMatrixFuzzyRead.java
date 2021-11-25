@@ -9,7 +9,7 @@ package org.decision_deck.utils.matrix;
  * <P>
  * If this matrix is complete, it is equivalent to a fuzzy relation. If it is
  * not complete, then a difference between a fuzzy relation is that this matrix
- * has <code>null</code> entries associated to some positions, which is
+ * has {@code null} entries associated to some positions, which is
  * different than a zero value.
  * </P>
  * <P>
@@ -30,7 +30,7 @@ package org.decision_deck.utils.matrix;
 public interface SparseMatrixFuzzyRead<R, C> extends SparseMatrixDRead<R, C> {
 	/**
 	 * @return the double value at that position (between zero and one inclusive),
-	 *         or <code>null</code>.
+	 *         or {@code null}.
 	 */
 	@Override
 	public Double getEntry(R row, C column);

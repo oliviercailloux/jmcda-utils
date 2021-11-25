@@ -31,8 +31,8 @@ public class Preorder<E> extends BinaryRelationForwarder<E, E> implements Binary
 	 * Adds (x, x), (y, y), (x, y) to this relation and all relations resulting from
 	 * transitivity: w R x and y R z ⇒ w R z is added.
 	 * 
-	 * @param x not <code>null</code>.
-	 * @param y not <code>null</code>.
+	 * @param x not {@code null}.
+	 * @param y not {@code null}.
 	 */
 	public void addTransitive(E x, E y) {
 		checkNotNull(x);
@@ -62,8 +62,8 @@ public class Preorder<E> extends BinaryRelationForwarder<E, E> implements Binary
 	 * Same effect as {@link #addTransitive(Object, Object)} and
 	 * {@link #addTransitive(Object, Object)} inverted.
 	 * 
-	 * @param x not <code>null</code>.
-	 * @param y not <code>null</code>.
+	 * @param x not {@code null}.
+	 * @param y not {@code null}.
 	 */
 	public void addEqTransitive(E x, E y) {
 		addTransitive(x, y);

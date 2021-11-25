@@ -39,8 +39,8 @@ public class MatrixesHelper<R, C> {
 	 * second one. If both matrix have a value defined for a given position, and
 	 * these values are different, it is an error and an exception is thrown.
 	 * 
-	 * @param m1 not <code>null</code>.
-	 * @param m2 not <code>null</code>.
+	 * @param m1 not {@code null}.
+	 * @param m2 not {@code null}.
 	 * @return a copy of all entries.
 	 */
 	public SparseMatrixD<R, C> merge(SparseMatrixDRead<R, C> m1, SparseMatrixDRead<R, C> m2) {

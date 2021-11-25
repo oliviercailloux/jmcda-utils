@@ -15,7 +15,7 @@ public class ForwardingSparseMatrixRead<R, C> implements SparseMatrixDRead<R, C>
 	/**
 	 * Creates a new matrix forwarding to the given delegate.
 	 * 
-	 * @param delegate not <code>null</code>.
+	 * @param delegate not {@code null}.
 	 */
 	public ForwardingSparseMatrixRead(SparseMatrixDRead<R, C> delegate) {
 		checkNotNull(delegate);

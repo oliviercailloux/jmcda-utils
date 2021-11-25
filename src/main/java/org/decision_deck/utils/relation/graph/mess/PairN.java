@@ -11,7 +11,7 @@ import com.google.common.collect.Ordering;
 /**
  * <P>
  * A simple pair object, holding two other objects, of possibly different types.
- * One or both elements of the pair may be <code>null</code>. Note that this
+ * One or both elements of the pair may be {@code null}. Note that this
  * object represents an ordered pair, or a 2-tuple, which is different than an
  * unordered pair or <em>couple</em> in French.
  * </P>
@@ -21,7 +21,7 @@ import com.google.common.collect.Ordering;
  * </P>
  * <p>
  * The N letter in the class name indicates that this object accepts
- * <code>null</code> elements.
+ * {@code null} elements.
  * </p>
  *
  * @author Olivier Cailloux
@@ -71,14 +71,14 @@ public class PairN<T1, T2> {
 	 * Retrieves a function which, given a pair, gives its string form in the form
 	 * of the transformation of the first element using the given function, a comma
 	 * to separate them, and the transformation of the second element, surrounded by
-	 * less than and greater than signs (to indicate a tuple). No <code>null</code>
+	 * less than and greater than signs (to indicate a tuple). No {@code null}
 	 * pairs are accepted by the function, but the elements themselves may be
-	 * <code>null</code> iff the given transformation functions accept those.
+	 * {@code null} iff the given transformation functions accept those.
 	 * </p>
 	 * <p>
 	 * This provides an easy way to get short debug strings. E.g. to get a string
 	 * representing the contents of a set of pairs of alternatives <em>s</em>, use
-	 * <code>Joiner.on(", ").join(Iterables.transform(s, Pair.getToStringFunction(Alternative.getIdFct(), Alternative.getIdFct())))</code>
+	 * {@code Joiner.on(", ").join(Iterables.transform(s, Pair.getToStringFunction(Alternative.getIdFct(), Alternative.getIdFct())))}
 	 * .
 	 * </p>
 	 * 
@@ -90,7 +90,7 @@ public class PairN<T1, T2> {
 	 * @param toString2 a function which transforms the second element of a pair to
 	 *                  a string.
 	 * 
-	 * @return not <code>null</code>.
+	 * @return not {@code null}.
 	 */
 	static public <F1, F2> Function<PairN<F1, F2>, String> getToStringFunction(final Function<F1, String> toString1,
 			final Function<F2, String> toString2) {
@@ -148,14 +148,14 @@ public class PairN<T1, T2> {
 	}
 
 	/**
-	 * @return the first element of the pair. May be <code>null</code>.
+	 * @return the first element of the pair. May be {@code null}.
 	 */
 	public T1 getElt1() {
 		return m_elt1;
 	}
 
 	/**
-	 * @return the second element of the pair. May be <code>null</code>.
+	 * @return the second element of the pair. May be {@code null}.
 	 */
 	public T2 getElt2() {
 		return m_elt2;
@@ -174,7 +174,7 @@ public class PairN<T1, T2> {
 	public String toString() {
 		return LEFT_ANGLE_BRACKET + m_elt1.toString() + ", " + m_elt2 + RIGHT_ANGLE_BRACKET;
 
-		/** This would fail on <code>null</code> elements. */
+		/** This would fail on {@code null} elements. */
 		// return getToStringFunction(Functions.toStringFunction(),
 		// Functions.toStringFunction()).apply(this);
 	}
